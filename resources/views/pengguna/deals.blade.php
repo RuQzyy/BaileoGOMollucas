@@ -104,32 +104,21 @@ https://templatemo.com/tm-580-woox-travel
     <!-- ***** Header Area End ***** -->
 
     <div class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h4>Discover Our Weekly Offers</h4>
-                    <h2>Amazing Prices &amp; More</h2>
-                    <div class="border-button"><a href="about.html">Discover More</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h4>Discover Our Weekly Offers</h4>
+                <h2>Amazing Prices &amp; More</h2>
 
-    <div class="search-form">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
+                <!-- ✅ Search form dipindahkan ke sini -->
+                <div class="search-form" style="margin-top: 40px;">
                     <form id="search-form" name="gs" method="submit" role="search" action="#">
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <h4>Sort Deals By:</h4>
-                            </div>
-                            <div class="col-lg-4">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3">
                                 <fieldset>
-                                    <select name="Location" class="form-select" aria-label="Default select example"
-                                        id="chooseLocation" onChange="this.form.click()">
+                                    <select name="Location" class="form-select" id="chooseLocation">
                                         <option selected>Destinations</option>
-                                        <option type="checkbox" name="option1" value="Italy">Italy</option>
+                                        <option value="Italy">Italy</option>
                                         <option value="France">France</option>
                                         <option value="Switzerland">Switzerland</option>
                                         <option value="Thailand">Thailand</option>
@@ -141,19 +130,6 @@ https://templatemo.com/tm-580-woox-travel
                                     </select>
                                 </fieldset>
                             </div>
-                            <div class="col-lg-4">
-                                <fieldset>
-                                    <select name="Price" class="form-select" aria-label="Default select example"
-                                        id="choosePrice" onChange="this.form.click()">
-                                        <option selected>Price Range</option>
-                                        <option value="100">$100 - $250</option>
-                                        <option value="250">$250 - $500</option>
-                                        <option value="500">$500 - $1,000</option>
-                                        <option value="1000">$1,000 - $2,500</option>
-                                        <option value="2500+">$2,500+</option>
-                                    </select>
-                                </fieldset>
-                            </div>
                             <div class="col-lg-2">
                                 <fieldset>
                                     <button class="border-button">Search Results</button>
@@ -162,9 +138,13 @@ https://templatemo.com/tm-580-woox-travel
                         </div>
                     </form>
                 </div>
+                <!-- ✅ Search form selesai -->
             </div>
         </div>
     </div>
+</div>
+
+
 
     <div class="amazing-deals">
         <div class="container">
@@ -312,36 +292,36 @@ https://templatemo.com/tm-580-woox-travel
             </div>
         </div>
     </div>
-
-    <div class="call-to-action">
+  <div class="call-to-action">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <h2>Are You Looking To Travel ?</h2>
-                    <h4>Make A Reservation By Clicking The Button</h4>
+                    <h2>Tertarik Mempelajari Budaya Maluku?</h2>
+                    <h4>Jelajahi warisan budaya Maluku dan temukan nilai-nilai luhur di balik setiap tradisi.</h4>
                 </div>
                 <div class="col-lg-4">
                     <div class="border-button">
-                        <a href="reservation.html">Book Yours Now</a>
+                        <a href="{{ route('pengguna.about') }}">Mulai Belajar Sekarang</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved.
-                        <br>Design: <a href="https://templatemo.com" target="_blank"
-                            title="free CSS templates">TemplateMo</a> Distribution: <a
-                            href="https://themewagon.com target="_blank">ThemeWagon</a>
-                    </p>
-                </div>
+    <footer class="custom-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved.
+                    <br>Design: <a href="https://templatemo.com" target="_blank"
+                        title="free CSS templates">TemplateMo</a> Distribution: <a
+                        href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                </p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
 
 
     <!-- Scripts -->

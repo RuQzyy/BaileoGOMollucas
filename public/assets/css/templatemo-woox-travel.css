@@ -1912,14 +1912,14 @@ Deals Page Style
 }
 
 .search-form #search-form {
-  background-color: #22b3c1;
+  background-color: #ffffff;
   border-bottom-left-radius: 23px;
   border-bottom-right-radius: 23px;
   padding: 35px 60px;
 }
 
 .search-form #search-form h4 {
-  color: #fff;
+  color: #2053b8;
   font-size: 20px;
   font-weight: 700;
   margin-top: 10px;
@@ -1930,9 +1930,9 @@ Deals Page Style
   border: none;
   outline: none;
   box-shadow: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #2053b8;
   border-radius: 0px;
-  color: #fff;
+  color: #2053b8;
   font-size: 15px;
   font-weight: 300;
   width: 100%;
@@ -1940,16 +1940,16 @@ Deals Page Style
 }
 
 .search-form #search-form option {
-  background-color: #1ea0ad;
+  background-color: #fff;
 }
 
 .search-form #search-form button {
   width: 100%;
   text-align: center;
   font-size: 14px;
-  color: #fff;
+  color: #2053b8;
   background-color: transparent;
-  border: 1px solid #fff;
+  border: 1px solid #2053b8;
   padding: 8px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -1962,8 +1962,8 @@ Deals Page Style
 }
 
 .search-form #search-form button:hover {
-  background-color: #fff;
-  color: #22b3c1;
+  background-color: #2053b8;
+  color: #fff;
 }
 
 .amazing-deals {
