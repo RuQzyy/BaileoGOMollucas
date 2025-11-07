@@ -1,498 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://db.onlinewebfonts.com/c/89d11a443c316da80dcb8f5e1f63c86e?family=Bauhaus+93+V2" rel="stylesheet" type="text/css"/>
+   
+    {{-- Favicon --}}
+    <link rel="stylesheet" href="">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{-- REMIXICON --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css ">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    {{-- Swiper css --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
 
-    <title>WoOx Travel Bootstrap 5 Theme</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/templatemo-woox-travel.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <!--
-
-TemplateMo 580 Woox Travel
-
-https://templatemo.com/tm-580-woox-travel
-
--->
-
-</head>
-
+     <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    
+    <title>Baileo Go Mollucas</title>
+</head> 
 <body>
+  {{-- Header --}}
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#" class="nav__logo">
+          <img src="assets/images/logo_BGM.png" alt="image" style="height:70px; object-fit:contain; margin-top:-10px;">
+        </a>
 
-    <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-        <div class="preloader-inner">
-            <span class="dot"></span>
-            <div class="dots">
-                <span></span>
-                <span></span>
-                <span></span>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="#home" class="nav__link active-link">Home</a></li>
+            <li><a href="#belajar" class="nav__link ">Belajar</a></li>
+            <li><a href="#Gallery" class="nav__link ">Gallery</a></li>
+            <li><a href="#Admin" class="nav__link ">Admin</a></li>
+          </ul>
+
+          {{-- close button --}}
+          <div class="nav__close" id="nav-close">
+              <i class="ri-close-large-line"></i>
+          </div>
+        </div>
+  
+        <div class="nav__buttons">
+            <!-- theme button -->
+            <i class="ri-moon-fill nav__theme" id="theme-button"></i>
+
+            <!-- toggle button -->
+            <div class="nav__toggle" id="nav-toggle">
+              <i class="ri-apps-2-fill"></i>
             </div>
         </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="{{ route('pengguna.index') }}" class="logo"
-                            style="display:flex; align-items:flex-start;">
-                            <img src="assets/images/logo.png" alt=""
-                                style="height:140px; object-fit:contain; margin-top:-40px;">
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <ul class="nav">
-                            <li>
-                                <a href="{{ route('pengguna.index') }}"
-                                    class="{{ request()->routeIs('pengguna.index') ? 'active' : '' }}">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('pengguna.about') }}"
-                                    class="{{ request()->routeIs('pengguna.about') ? 'active' : '' }}">
-                                    About
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('pengguna.deals') }}"
-                                    class="{{ request()->routeIs('pengguna.deals') ? 'active' : '' }}">
-                                    Deals
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('pengguna.reservation') }}"
-                                    class="{{ request()->routeIs('pengguna.reservation') ? 'active' : '' }}">
-                                    Reservation
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('pengguna.reservation') }}"
-                                    class="{{ request()->routeIs('pengguna.reservation') ? 'active' : '' }}">
-                                    Book Yours
-                                </a>
-                            </li>
-                        </ul>
-
-
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
+      </nav>
     </header>
-    <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Area Start ***** -->
-    <!-- ***** Main Banner Area Start ***** -->
-    <section id="section-1">
-        <div class="content-slider">
-            <input type="radio" id="banner1" class="sec-1-input" name="banner" checked>
-            <input type="radio" id="banner2" class="sec-1-input" name="banner">
-            <input type="radio" id="banner3" class="sec-1-input" name="banner">
-            <input type="radio" id="banner4" class="sec-1-input" name="banner">
-            <div class="slider">
+    {{-- main --}}
+    <main class="main">
+      {{-- home --}}
+      <section class="home section" id="home">
+          <img src="assets/images/oke.jpg" alt="image" class="home__bg">
+          <div class="home__blur"></div>
 
-                <!-- Banner 1: Rumah Adat Baileo -->
-                <div id="top-banner-1" class="banner">
-                    <div class="banner-inner-wrapper header-text">
-                        <div class="main-caption">
-                            <h2>Rumah Adat Maluku</h2>
-                            <h1>Baileo</h1>
-                            <div class="border-button"><a href="{{ route('pengguna.about') }}">Pelajari</a></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="more-info">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-university"></i>
-                                                <h4><span>Fungsi:</span><br>Tempat musyawarah & upacara adat</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-calendar"></i>
-                                                <h4><span>Tahun Dibuat:</span><br>sebelum abad ke-16</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-map-marker"></i>
-                                                <h4><span>Asal Daerah:</span><br>Provinsi Maluku</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <div class="main-button">
-                                                    <a href="{{ route('pengguna.about') }}">Jelajahi Lebih Lanjut</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="home__container container grid">
+            <div class="home__data">
+                <h1 class="home__title">Jelajahi <br>Budaya<br> Maluku</h1>
 
-                <!-- Banner 2: Tarian Cakalele -->
-                <div id="top-banner-2" class="banner">
-                    <div class="banner-inner-wrapper header-text">
-                        <div class="main-caption">
-                            <h2>Tarian Tradisional Maluku</h2>
-                            <h1>Cakalele</h1>
-                            <div class="border-button"><a href="{{ route('pengguna.about') }}">Pelajari</a></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="more-info">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-users"></i>
-                                                <h4><span>Fungsi:</span><br>Tarian perang</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-calendar"></i>
-                                                <h4><span>Tahun Dibuat:</span><br>Abad ke-15</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-map-marker"></i>
-                                                <h4><span>Asal Daerah:</span><br>Provinsi Maluku</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <div class="main-button">
-                                                    <a href="{{ route('pengguna.about') }}">Jelajahi Lebih Lanjut</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Banner 3: Baju Cele -->
-                <div id="top-banner-3" class="banner">
-                    <div class="banner-inner-wrapper header-text">
-                        <div class="main-caption">
-                            <h2>Pakaian Adat Maluku</h2>
-                            <h1>Baju Cele</h1>
-                            <div class="border-button"><a href="{{ route('pengguna.about') }}">Pelajari</a></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="more-info">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-female"></i>
-                                                <h4><span>Fungsi:</span><br>Baju Adat</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-calendar"></i>
-                                                <h4><span>Tahun Dikenal:</span><br>sebelum abad ke-16</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-map-marker"></i>
-                                                <h4><span>Asal Daerah:</span><br>Provinsi Maluku</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <div class="main-button">
-                                                    <a href="{{ route('pengguna.about') }}">Jelajahi Lebih Lanjut</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Banner 4: Bambu Gila -->
-                <div id="top-banner-4" class="banner">
-                    <div class="banner-inner-wrapper header-text">
-                        <div class="main-caption">
-                            <h2>Tradisi Unik Maluku</h2>
-                            <h1>Bambu Gila</h1>
-                            <div class="border-button"><a href="{{ route('pengguna.about') }}">Pelajari</a></div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="more-info">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-magic"></i>
-                                                <h4><span>Fungsi:</span><br>Ritual tradisional</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-calendar"></i>
-                                                <h4><span>Tahun Asal:</span><br>sebelum abad ke-17</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <i class="fa fa-map-marker"></i>
-                                                <h4><span>Asal Daerah:</span><br>Provinsi Maluku</h4>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6 col-6">
-                                                <div class="main-button">
-                                                    <a href="{{ route('pengguna.about') }}">Jelajahi Lebih Lanjut</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Navigasi Banner -->
-            <nav>
-                <div class="controls">
-                    <label for="banner1"><span class="progressbar"><span
-                                class="progressbar-fill"></span></span><span class="text">1</span></label>
-                    <label for="banner2"><span class="progressbar"><span
-                                class="progressbar-fill"></span></span><span class="text">2</span></label>
-                    <label for="banner3"><span class="progressbar"><span
-                                class="progressbar-fill"></span></span><span class="text">3</span></label>
-                    <label for="banner4"><span class="progressbar"><span
-                                class="progressbar-fill"></span></span><span class="text">4</span></label>
-                </div>
-            </nav>
-        </div>
-    </section>
-    <!-- ***** Main Banner Area End ***** -->
-
-    <div class="visit-country">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="section-heading">
-                        <h2>Mengenal dan Melestarikan Budaya Maluku Secara Digital</h2>
-                        <p>BaileoGOMollucas hadir sebagai media edukasi interaktif yang memperkenalkan nilai-nilai luhur
-                            budaya Maluku. Melalui platform ini, pengguna dapat belajar tentang rumah adat, tarian,
-                            pakaian tradisional, bahasa daerah, hingga tradisi unik Maluku secara menarik dan mudah
-                            dipahami.</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="items">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="item">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-sm-5">
-                                            <div class="image">
-                                                <img src="assets/images/country-01.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-sm-7">
-                                            <div class="right-content">
-                                                <h4>SWITZERLAND</h4>
-                                                <span>Europe</span>
-                                                <div class="main-button">
-                                                    <a href="about.html">Explore More</a>
-                                                </div>
-                                                <p>Woox Travel is a professional Bootstrap 5 theme HTML CSS layout for
-                                                    your website. You can use this layout for your commercial work.</p>
-                                                <ul class="info">
-                                                    <li><i class="fa fa-user"></i> 8.66 Mil People</li>
-                                                    <li><i class="fa fa-globe"></i> 41.290 km2</li>
-                                                    <li><i class="fa fa-home"></i> $1.100.200</li>
-                                                </ul>
-                                                <div class="text-button">
-                                                    <a href="about.html">Need Directions ? <i
-                                                            class="fa fa-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="item">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-sm-5">
-                                            <div class="image">
-                                                <img src="assets/images/country-02.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-sm-7">
-                                            <div class="right-content">
-                                                <h4>CARIBBEAN</h4>
-                                                <span>North America</span>
-                                                <div class="main-button">
-                                                    <a href="about.html">Explore More</a>
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore dolor sit amet, consectetur
-                                                    adipiscing elit, sed do eiusmod.</p>
-                                                <ul class="info">
-                                                    <li><i class="fa fa-user"></i> 44.48 Mil People</li>
-                                                    <li><i class="fa fa-globe"></i> 275.400 km2</li>
-                                                    <li><i class="fa fa-home"></i> $946.000</li>
-                                                </ul>
-                                                <div class="text-button">
-                                                    <a href="about.html">Need Directions ? <i
-                                                            class="fa fa-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="item last-item">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-sm-5">
-                                            <div class="image">
-                                                <img src="assets/images/country-03.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-sm-7">
-                                            <div class="right-content">
-                                                <h4>FRANCE</h4>
-                                                <span>Europe</span>
-                                                <div class="main-button">
-                                                    <a href="about.html">Explore More</a>
-                                                </div>
-                                                <p>We hope this WoOx template is useful for you, please support us a <a
-                                                        href="https://paypal.me/templatemo" target="_blank">small
-                                                        amount of PayPal</a> to info [at] templatemo.com for our
-                                                    survival. We really appreciate your contribution.</p>
-                                                <ul class="info">
-                                                    <li><i class="fa fa-user"></i> 67.41 Mil People</li>
-                                                    <li><i class="fa fa-globe"></i> 551.500 km2</li>
-                                                    <li><i class="fa fa-home"></i> $425.600</li>
-                                                </ul>
-                                                <div class="text-button">
-                                                    <a href="about.html">Need Directions ? <i
-                                                            class="fa fa-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <ul class="page-numbers">
-                                    <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li class="active"><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="side-bar-map">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div id="map">
-                                    <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1063122.787857517!2d126.212!3d-3.238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d11bcba701ca1df%3A0x5e30e8db04649a51!2sProvinsi%20Maluku!5e0!3m2!1sid!2sid!4v1730708700000!5m2!1sid!2sid"
-                                        width="100%" height="550px" frameborder="0"
-                                        style="border:0; border-radius:23px;" allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade">
-                                    </iframe>
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="call-to-action">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h2>Tertarik Mempelajari Budaya Maluku?</h2>
-                    <h4>Jelajahi warisan budaya Maluku dan temukan nilai-nilai luhur di balik setiap tradisi.</h4>
-                </div>
-                <div class="col-lg-4">
-                    <div class="border-button">
-                        <a href="{{ route('pengguna.about') }}">Mulai Belajar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="custom-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved.
-                    <br>Design: <a href="https://templatemo.com" target="_blank"
-                        title="free CSS templates">TemplateMo</a> Distribution: <a
-                        href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                <p class="home__description">
+                  Budaya yang lahir dari laut, hutan, dan sejarah panjang peradaban kepulauan. Temukan keindahan dan nilai luhur Maluku yang hidup dalam setiap tarian, bahasa, dan karya seni.
                 </p>
+                <a href="#bahasa" class="button button__opa-30">
+                  Kenali Sekarang
+                  <i class="ri-arrow-right-long-line"></i>
+                </a>
             </div>
+            <div class="home__swiper swiper">
+              <div class="swiper-wrapper">
+                <article class="home__article swiper-slide">
+                  <img src="assets/images/cakalele0.jpg" alt="image" class="home__img">
+                </article>
+                
+                <article class="home__article swiper-slide">
+                  <img src="assets/images/lenso.jpg" alt="image" class="home__img">
+                </article>
+                
+                <article class="home__article swiper-slide">
+                  <img src="assets/images/cakalele.jpg" alt="image" class="home__img">
+                </article>
+                
+                <article class="home__article swiper-slide">
+                  <img src="assets/images/pukul.png" alt="image" class="home__img">
+                </article>
+              </div>
+              
+              <!-- navigation buttons -->
+              <div class="swiper-button-prev">
+                <i class="ri-arrow-left-long-line"></i>
+              </div>
+              <div class="swiper-button-next">
+                <i class="ri-arrow-right-long-line"></i>
+              </div>
+            </div>
+          </div>
+      </section>
+      {{-- bahasa --}}
+      <section class="bahasa section" id="bahasa">
+          <h2 class="section__title">Adat & Tradisi <br> Maluku</h2>
+
+          <div class="bahasa__container container grid">
+            <article class="bahasa__card">
+              <img src="assets/images/baileo_maluku.jpg" alt="image" class="bahasa__img">
+              <div class="bahasa__data">
+                <h3 class="deskripsi__bahasa">31-05-2025</h3>
+                <h2 class="bahasa_title">Baileo</h2>
+                <p class="bahasa__country">
+                  <i class="ri-map-pin-2-fill">Maluku, Indonesia</i>
+                  <span></span>
+                </p>
+              </div>
+            </article>
+            <article class="bahasa__card">
+              <img src="assets/images/cakalele.jpg" alt="image" class="bahasa__img">
+              <div class="bahasa__data">
+                <h3 class="deskripsi__bahasa">Tarian Tradisional</h3>
+                <h2 class="bahasa_title">Cakalele</h2>
+                <p class="bahasa__country">
+                  <i class="ri-map-pin-2-fill">Maluku, Indonesia</i>
+                  <span></span>
+                </p>
+              </div>
+            </article>
+            <article class="bahasa__card">
+              <img src="assets/images/cele2.png" alt="image" class="bahasa__img" >
+              <div class="bahasa__data">
+                <h3 class="deskripsi__bahasa">Pakaian Tradisional</h3>
+                <h2 class="bahasa_title">Cakalele</h2>
+                <p class="bahasa__country">
+                  <i class="ri-map-pin-2-fill">Maluku, Indonesia</i>
+                  <span></span>
+                </p>
+              </div>
+            </article>
+          </div>
+      </section>
+      {{-- quiz --}}
+      <section class="quiz section" id="quiz">
+        <h2 class="section__title">Belajar Bahasa <br> Jelajahi Budaya</h2>
+
+        <div class="quiz__container container grid">
+          <img src="assets/images/oke.jpg" alt="image" class="quiz__img">
+          <div class="quiz__swiper swiper">
+            <div class="swiper-wrapper">
+              <div class="quiz__card swiper-slide">
+                <h2 class="quiz__title">Tarian Tradisional</h2>
+                <p class="quiz__description">
+                  Cakalele adalah salah satu tarian trandisional dari maluku
+                </p>
+                <div class="quiz__profile">
+                  <img src="assets/images/bambu.jpg" alt="image">
+
+                  <div class="quiz__info">
+                    <h3>Warisan Budaya</h3>
+                    <p>papeda</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="quiz__card swiper-slide">
+                <h2 class="quiz__title">Rumah Adat</h2>
+                <p class="quiz__description">
+                  baileo merupakan rumah adat maluku
+                </p>
+                <div class="quiz__profile">
+                  <img src="assets/images/yuyun.jpg" alt="image">
+
+                  <div class="quiz__info">
+                    <h3>Warisan Budaya</h3>
+                    <p>Yuyun</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="quiz__card swiper-slide">
+                <h2 class="quiz__title">Makanan Khas Maluku</h2>
+                <p class="quiz__description">
+                  papeda adalah salah satu makanan khas maluku
+                </p>
+                <div class="quiz__profile">
+                  <img src="assets/images/eunwooo.jpeg" alt="image">
+
+                  <div class="quiz__info">
+                    <h3>Warisan Budaya</h3>
+                    <p>Eunwoo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="swiper-button-prev">
+              <i class="ri-arrow-left-long-fill"></i>
+            </div>
+
+            <div class="swiper-button-next">
+              <i class="ri-arrow-right-long-fill"></i>
+            </div>
+
+          </div>
         </div>
-    </div>
-</footer>
+      </section>
+      {{-- gallery --}}
+      <section class="gallery section" id="gallery">
+          <h2 class="section__title">Gallery</h2>
 
+          <div class="gallery__container container grid">
+            <article class="gallery__card">
+              <img src="assets/images/bambu.jpg" alt="image" class="gallery__img">
+              <div class="gallery__shadow"></div>
 
+              <div class="gallery__data">
+                <h3 class="gallery__subtitle">Tarian </h3>
+                <h2 class="galley__title">Tradisional</h2>
+              </div>
+            </article>
 
-    <!-- Scripts -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+            <article class="gallery__card">
+              <img src="assets/images/bambu.jpg" alt="image" class="gallery__img">
+              <div class="gallery__shadow"></div>
 
-    <!-- Additional JS Files -->
-    <script src="{{ asset('assets/js/isotope.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
-    <script src="{{ asset('assets/js/wow.js') }}"></script>
-    <script src="{{ asset('assets/js/tabs.js') }}"></script>
-    <script src="{{ asset('assets/js/popup.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+              <div class="gallery__data">
+                <h3 class="gallery__subtitle">Upacara </h3>
+                <h2 class="galley__title">Adat</h2>
+              </div>
+            </article>
 
-    <script>
-        function bannerSwitcher() {
-            next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
-            if (next.length) next.prop('checked', true);
-            else $('.sec-1-input').first().prop('checked', true);
-        }
+            <article class="gallery__card">
+              <img src="assets/images/bambu.jpg" alt="image" class="gallery__img">
+              <div class="gallery__shadow"></div>
 
-        var bannerTimer = setInterval(bannerSwitcher, 5000);
+              <div class="gallery__data">
+                <h3 class="gallery__subtitle">Musik </h3>
+                <h2 class="galley__title">Tradisional</h2>
+              </div>
+            </article>
 
-        $('nav .controls label').click(function() {
-            clearInterval(bannerTimer);
-            bannerTimer = setInterval(bannerSwitcher, 5000)
-        });
-    </script>
+            <article class="gallery__card">
+              <img src="assets/images/bambu.jpg" alt="image" class="gallery__img">
+              <div class="gallery__shadow"></div>
 
+              <div class="gallery__data">
+                <h3 class="gallery__subtitle">makanan</h3>
+                <h2 class="galley__title">Khas Maluku</h2>
+              </div>
+            </article>
+          </div>
+        
+      </section>
+
+    </main>
+
+    
+    {{-- Footer --}}
+    <footer class="footer">
+      <div class="footer__container container grid">
+        <a href="#" class="footer__logo">
+          <img src="assets/images/logo2.png" alt="image" class="footer__logo-img">
+          <span>BaileoGO<br>Mollucas</span>
+        </a>
+
+        <div class="footer__content grid">
+          <div>
+            <h3 class="footer__title">About</h3>
+
+            <ul class="footer__links">
+              <li>
+                <a href="#" class="footer__link">About Us</a>
+              </li>
+              
+              <li>
+                <a href="#" class="footer__link">Features</a>
+              </li>
+              
+              <li>
+                <a href="#" class="footer__link">News & Blog</a>
+              </li>
+
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="footer__title">Social</h3>
+
+            <div class="footer__social">
+              <a href="#" target="_blank" class="footer__social-link">
+                <i class="ri-facebook-circle-fill"></i>
+              </a>
+              <a href="#" target="_blank" class="footer__social-link">
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a href="#" target="_blank" class="footer__social-link">
+                <i class="ri-twitter-x-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="footer__copy">
+        &#169; Baileo GO Mollucas
+      </span>
+    </footer>
+    
+    {{-- Scroll Up --}}
+    <a href="" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line"></i>
+    </a>
+
+    {{-- Scroll Reveal --}}
+    <script src="{{ asset('assets/js/scrollreveal.min.js') }}"></script>
+
+    {{-- swiper js --}}
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+    
+    <!-- main js-->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    
 </body>
-
 </html>
