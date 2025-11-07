@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\BudayaController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\BahasaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,16 +36,60 @@ Route::get('/reservation', [PenggunaController::class, 'reservation'])->name('pe
 */
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+      Route::get('/admin/budaya', [AdminController::class, 'budaya'])->name('admin.budaya');
+      Route::get('/admin/event', [EventController::class, 'index'])->name('admin.event');
+          Route::get('/admin/bahasa', [BahasaController::class, 'bahasa'])->name('admin.bahasa');
 });
 
 /*
 |--------------------------------------------------------------------------
-| Pengguna Routes (perlu login sebagai pengguna)
+| budaya
 |--------------------------------------------------------------------------
 */
-Route::middleware(['auth', 'role:pengguna'])->group(function () {
-    Route::get('/pengguna/dashboard', [PenggunaController::class, 'index'])->name('pengguna.dashboard');
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/budaya', [BudayaController::class, 'index'])->name('admin.budaya');
+    Route::post('/budaya', [BudayaController::class, 'store'])->name('admin.budaya.store');
+    Route::delete('/budaya/{id}', [BudayaController::class, 'destroy'])->name('admin.budaya.destroy');
 });
+
+/*
+|--------------------------------------------------------------------------
+| event
+|--------------------------------------------------------------------------
+*/
+
+
+/*
+|--------------------------------------------------------------------------
+| Bahasa CRUD
+|--------------------------------------------------------------------------
+*/
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/bahasa', [BahasaController::class, 'index'])->name('admin.bahasa');
+    Route::post('/bahasa', [BahasaController::class, 'store'])->name('admin.bahasa.store');
+    Route::post('/bahasa/{id}/update', [BahasaController::class, 'update'])->name('admin.bahasa.update');
+    Route::delete('/bahasa/{id}', [BahasaController::class, 'destroy'])->name('admin.bahasa.destroy');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| bahasa
+|--------------------------------------------------------------------------
+*/
+
+
+
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/bahasa', [BahasaController::class, 'index'])->name('admin.bahasa');
+    Route::post('/bahasa', [BahasaController::class, 'store'])->name('admin.bahasa.store');
+    Route::post('/bahasa/{id}/update', [BahasaController::class, 'update'])->name('admin.bahasa.update');
+    Route::delete('/bahasa/{id}', [BahasaController::class, 'destroy'])->name('admin.bahasa.destroy');
+});
+
+
 
 /*
 |--------------------------------------------------------------------------

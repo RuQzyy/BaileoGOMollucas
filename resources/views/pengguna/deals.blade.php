@@ -107,17 +107,15 @@ https://templatemo.com/tm-580-woox-travel
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h4>Discover Our Weekly Offers</h4>
-                <h2>Amazing Prices &amp; More</h2>
-
-                <!-- ✅ Search form dipindahkan ke sini -->
+                <h4>Kenali Budaya Maluku Lebih Dekat</h4>
+               <h3 style="color: white;">Karena Warisan Tak Boleh Hilang oleh Waktu</h3>
                 <div class="search-form" style="margin-top: 40px;">
                     <form id="search-form" name="gs" method="submit" role="search" action="#">
                         <div class="row justify-content-center">
                             <div class="col-lg-3">
                                 <fieldset>
                                     <select name="Location" class="form-select" id="chooseLocation">
-                                        <option selected>Destinations</option>
+                                        <option selected>budaya</option>
                                         <option value="Italy">Italy</option>
                                         <option value="France">France</option>
                                         <option value="Switzerland">Switzerland</option>
@@ -130,15 +128,14 @@ https://templatemo.com/tm-580-woox-travel
                                     </select>
                                 </fieldset>
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 <fieldset>
-                                    <button class="border-button">Search Results</button>
+                                    <button class="border-button">Cari Budaya</button>
                                 </fieldset>
                             </div>
                         </div>
                     </form>
                 </div>
-                <!-- ✅ Search form selesai -->
             </div>
         </div>
     </div>
