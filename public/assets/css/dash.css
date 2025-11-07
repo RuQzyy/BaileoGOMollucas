@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary: #fa1717;
+}
+
+body{
+    background: #ffffff;
+    font-family: "Roboto", sans-serif;
+} 
+
+/* Header */
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    background: transparent;
+    z-index: 1000;
+}
+
+.logo{
+    font-family: "Bauhaus 93 V2";
+    font-size: 30px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+}
+
+.nav li{
+    position: relative;
+    list-style: none;
+    margin: 0 20px;
+}
+
+.nav li::before{
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    height: 3px;
+    width: 50%;
+    background: var(--primary);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    
+}
+
+.nav li:hover::before{
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.nav li a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 10px;
+}
+
+.menu{
+    display: none;
+    transition: 0.3s;
+}
+
+.menu ion-icon{
+    color: #ffffff;
+    font-size: 1.8em;
+}
+
+.menu.active{
+    transform: rotateZ(45deg);
+}
+
+
+
+
+
+
+
+
+
+/* the nav menu icon in mobile */
+.nav-mobile{
+    display: none;
+}
+
+/* Swiper */
+.swiper{
+    width: 100%;
+    height: 100vh;
+}
+
+/* Swiper control section */
+.swiper .control{
+    position: absolute;
+    bottom: 60px;
+    width: 300px;
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* === SWIPER NAVIGATION FIX === */
+.banner-swiper .control .swiper-button-prev,
+.banner-swiper .control .swiper-button-next {
+  width: 50px;
+  height: 50px;
+}
+
+.banner-swiper .control .swiper-button-prev::after,
+.banner-swiper .control .swiper-button-next::after {
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.banner-swiper .control .swiper-button-prev:hover::after,
+.banner-swiper .control .swiper-button-next:hover::after {
+  background: rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+
+/* .banner {
+    width: 100%;
+    overflow: hidden; 
+} */
+
+/* Banner */
+.banner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+    z-index: 900;
+
+}
+
+.banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(130%);
+}
+
+.banner .shade{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.banner .shade .map{
+    position: absolute;
+    left: 80%;
+    top: 70%;
+    transform: translate(-50%,-50%);
+    width: 280px;
+    height: 250px;
+    filter: invert(1);
+    opacity: 0.2;
+    z-index: 1000;
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate{
+    0%, 
+    100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.banner .content-left {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 50%;
+    height: 100vh;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+}
+
+.content-left::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 50%;
+    background: var(--primary);
+}
+
+.banner .content-right {
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.banner .content-left h1, .banner .content-right h1{
+    font-family: "Bauhaus 93 V2";
+    font-weight: 800;
+    font-size: 14em;
+    line-height: 1em;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    margin-bottom: 150px;
+}
+
+.banner .content-right h1{
+    color: #ffffff;
+}
+
+.banner .content-left .description{
+    position: absolute;
+    left: 100px;
+    bottom: 15%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.banner .content-left h3{
+    font-weight: 500;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.banner .content-left p{
+    color: #ffffff;
+    font-weight: 200;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.banner .content-left a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 15px 40px;
+    background: var(--primary);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.banner .content-left a:hover{
+    background: transparent;
+    transition: 0.3s;
+}
+
+.banner .content-right h1 span{
+    color: var(--primary);
+}
+
+.banner .content-right .text-side{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: rotateZ(90deg) translateY(-50%);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 0.8em;
+    letter-spacing: 2px;
+}
+
+.banner .content-right .text-side::before{
+    position: absolute;
+    content: '';
+    top: -10px;
+    transform: translateX(50%);
+    width: 50%;
+    height: 3px;
+    background: var(--primary);
+}
+
+
+
+
