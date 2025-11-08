@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 class PenggunaController extends Controller
 {
     // Halaman utama (about)
-    public function about()
+    public function quiz()
     {
-        return view('pengguna.about');
+        return view('pengguna.quiz');
     }
 
-    // Halaman deals
-    public function deals()
+    // Halaman budaya
+    public function budaya()
     {
-        return view('pengguna.deals');
+        return view('pengguna.budaya');
     }
 
     // Halaman reservation

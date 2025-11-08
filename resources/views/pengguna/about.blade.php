@@ -73,10 +73,10 @@ https://templatemo.com/tm-580-woox-travel
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('pengguna.deals') }}"
+                                {{-- <a href="{{ route('pengguna.deals') }}"
                                     class="{{ request()->routeIs('pengguna.deals') ? 'active' : '' }}">
                                     Deals
-                                </a>
+                                </a> --}}
                             </li>
                             <li>
                                 <a href="{{ route('pengguna.reservation') }}"
