@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://db.onlinewebfonts.com/c/89d11a443c316da80dcb8f5e1f63c86e?family=Bauhaus+93+V2" rel="stylesheet" type="text/css"/>
-
+   
     {{-- Favicon --}}
     <link rel="stylesheet" href="">
 
@@ -17,9 +17,9 @@
 
      <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
+    
     <title>Baileo Go Mollucas</title>
-</head>
+</head> 
 <body>
   {{-- Header --}}
     <header class="header" id="header">
@@ -28,7 +28,7 @@
           <img src="assets/images/logo_BGM.png" alt="image" style="height:70px; object-fit:contain; margin-top:-10px;">
         </a>
           <div class="cursor">
-
+    
           </div>
 
         <div class="nav__menu" id="nav-menu">
@@ -43,7 +43,7 @@
               <i class="ri-close-large-line"></i>
           </div>
         </div>
-
+  
         <div class="nav__buttons">
             <!-- theme button -->
             <i class="ri-moon-fill nav__theme" id="theme-button"></i>
@@ -80,20 +80,20 @@
                 <article class="home__article swiper-slide">
                   <img src="assets/images/cakalele0.jpg" alt="image" class="home__img">
                 </article>
-
+                
                 <article class="home__article swiper-slide">
                   <img src="assets/images/lenso.jpg" alt="image" class="home__img">
                 </article>
-
+                
                 <article class="home__article swiper-slide">
                   <img src="assets/images/cakalele.jpg" alt="image" class="home__img">
                 </article>
-
+                
                 <article class="home__article swiper-slide">
                   <img src="assets/images/pukul.png" alt="image" class="home__img">
                 </article>
               </div>
-
+              
               <!-- navigation buttons -->
               <div class="swiper-button-prev">
                 <i class="ri-arrow-left-long-line"></i>
@@ -236,12 +236,12 @@
             </article>
 
           </div>
-
+        
       </section>
 
     </main>
 
-
+    
     {{-- Footer --}}
     <footer class="footer">
       <div class="footer__container container grid">
@@ -258,18 +258,18 @@
               <li>
                 <a href="#" class="footer__link">About Us</a>
               </li>
-
+              
               <li>
                 <a href="#" class="footer__link">Features</a>
               </li>
-
+              
               <li>
                 <a href="#" class="footer__link">News & Blog</a>
               </li>
 
             </ul>
           </div>
-
+          
           <div>
             <h3 class="footer__title">Social</h3>
 
@@ -291,7 +291,7 @@
         &#169; Baileo GO Mollucas
       </span>
     </footer>
-
+    
     {{-- Scroll Up --}}
     <a href="" class="scrollup" id="scroll-up">
       <i class="ri-arrow-up-line"></i>
@@ -302,7 +302,7 @@
 
     {{-- swiper js --}}
     <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
-
+    
     <!-- main js-->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
