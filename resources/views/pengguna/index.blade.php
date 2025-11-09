@@ -24,16 +24,18 @@
   {{-- Header --}}
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="#" class="nav__logo">
+        <a href="{{ route('pengguna.index') }}" class="nav__logo">
           <img src="assets/images/logo_BGM.png" alt="image" style="height:70px; object-fit:contain; margin-top:-10px;">
         </a>
+          <div class="cursor">
+    
+          </div>
 
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
-            <li><a href="#home" class="nav__link active-link">Home</a></li>
-            <li><a href="#belajar" class="nav__link ">Belajar</a></li>
-            <li><a href="#Gallery" class="nav__link ">Gallery</a></li>
-            <li><a href="#Admin" class="nav__link ">Admin</a></li>
+            <li><a href="{{ route('pengguna.index') }}" class="nav__link active-link">Home</a></li>
+            <li><a href="{{ route('pengguna.quiz') }}" class="nav__link ">Quiz</a></li>
+            <li><a href="#" class="nav__link ">Admin</a></li>
           </ul>
 
           {{-- close button --}}
@@ -68,7 +70,7 @@
                 <p class="home__description">
                   Budaya yang lahir dari laut, hutan, dan sejarah panjang peradaban kepulauan. Temukan keindahan dan nilai luhur Maluku yang hidup dalam setiap tarian, bahasa, dan karya seni.
                 </p>
-                <a href="#bahasa" class="button button__opa-30">
+                <a href="{{ route('pengguna.quiz') }}" class="button button__opa-30">
                   Kenali Sekarang
                   <i class="ri-arrow-right-long-line"></i>
                 </a>
@@ -208,12 +210,12 @@
           </div>
         </div>
       </section>
-      {{-- gallery --}}
+      {{-- budaya --}}
       <section class="gallery section" id="gallery">
-          <h2 class="section__title">Gallery</h2>
+          <h2 class="section__title">Budaya</h2>
 
           <div class="gallery__container container grid">
-            <article class="gallery__card">
+            <article class="gallery__card" onclick="window.location.href='{{ route('pengguna.quiz') }}'">
               <img src="assets/images/bambu.jpg" alt="image" class="gallery__img">
               <div class="gallery__shadow"></div>
 
@@ -223,17 +225,7 @@
               </div>
             </article>
 
-            <article class="gallery__card">
-              <img src="assets/images/bambu.jpg" alt="image" class="gallery__img">
-              <div class="gallery__shadow"></div>
-
-              <div class="gallery__data">
-                <h3 class="gallery__subtitle">Upacara </h3>
-                <h2 class="galley__title">Adat</h2>
-              </div>
-            </article>
-
-            <article class="gallery__card">
+            <article class="gallery__card" onclick="window.location.href='{{ route('pengguna.quiz') }}'">
               <img src="assets/images/bambu.jpg" alt="image" class="gallery__img">
               <div class="gallery__shadow"></div>
 
@@ -243,15 +235,6 @@
               </div>
             </article>
 
-            <article class="gallery__card">
-              <img src="assets/images/bambu.jpg" alt="image" class="gallery__img">
-              <div class="gallery__shadow"></div>
-
-              <div class="gallery__data">
-                <h3 class="gallery__subtitle">makanan</h3>
-                <h2 class="galley__title">Khas Maluku</h2>
-              </div>
-            </article>
           </div>
         
       </section>
@@ -262,7 +245,7 @@
     {{-- Footer --}}
     <footer class="footer">
       <div class="footer__container container grid">
-        <a href="#" class="footer__logo">
+        <a href="{{ route('pengguna.index') }}" class="footer__logo">
           <img src="assets/images/logo2.png" alt="image" class="footer__logo-img">
           <span>BaileoGO<br>Mollucas</span>
         </a>
@@ -322,6 +305,6 @@
     
     <!-- main js-->
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    
+
 </body>
 </html>

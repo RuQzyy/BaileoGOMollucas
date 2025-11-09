@@ -24,8 +24,8 @@ Route::get('/', function () {
 // ROUTE PUBLIK (tanpa login)
 // ====================
 Route::get('/index', [PenggunaController::class, 'index'])->name('pengguna.index');
-Route::get('/about', [PenggunaController::class, 'about'])->name('pengguna.about');
-Route::get('/deals', [PenggunaController::class, 'deals'])->name('pengguna.deals');
+Route::get('/quiz', [PenggunaController::class, 'quiz'])->name('pengguna.quiz');
+Route::get('/budaya', [PenggunaController::class, 'budaya'])->name('pengguna.budaya');
 Route::get('/reservation', [PenggunaController::class, 'reservation'])->name('pengguna.reservation');
 
 
