@@ -15,9 +15,8 @@ use App\Http\Controllers\BahasaController;
 */
 
 // Saat buka "/", langsung arahkan ke halaman about pengguna
-Route::get('/', function () {
-    return view('pengguna.index');
-});
+Route::get('/', [PenggunaController::class, 'index'])->name('pengguna.index');
+
 
 
 // ====================

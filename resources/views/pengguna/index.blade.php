@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://db.onlinewebfonts.com/c/89d11a443c316da80dcb8f5e1f63c86e?family=Bauhaus+93+V2" rel="stylesheet" type="text/css"/>
-   
+
     {{-- Favicon --}}
     <link rel="stylesheet" href="">
 
@@ -17,9 +17,9 @@
 
      <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-    
+
     <title>Baileo Go Mollucas</title>
-</head> 
+</head>
 <body>
   {{-- Header --}}
     <header class="header" id="header">
@@ -28,14 +28,22 @@
           <img src="assets/images/logo_BGM.png" alt="image" style="height:70px; object-fit:contain; margin-top:-10px;">
         </a>
           <div class="cursor">
-    
+
           </div>
 
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li><a href="{{ route('pengguna.index') }}" class="nav__link active-link">Home</a></li>
             <li><a href="{{ route('pengguna.quiz') }}" class="nav__link ">Quiz</a></li>
-            <li><a href="#" class="nav__link ">Admin</a></li>
+            <li>
+            <a href="#" class="nav__link"
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+               Admin
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+              @csrf
+            </form>
+          </li>
           </ul>
 
           {{-- close button --}}
@@ -43,7 +51,7 @@
               <i class="ri-close-large-line"></i>
           </div>
         </div>
-  
+
         <div class="nav__buttons">
             <!-- theme button -->
             <i class="ri-moon-fill nav__theme" id="theme-button"></i>
@@ -80,20 +88,20 @@
                 <article class="home__article swiper-slide">
                   <img src="assets/images/cakalele0.jpg" alt="image" class="home__img">
                 </article>
-                
+
                 <article class="home__article swiper-slide">
                   <img src="assets/images/lenso.jpg" alt="image" class="home__img">
                 </article>
-                
+
                 <article class="home__article swiper-slide">
                   <img src="assets/images/cakalele.jpg" alt="image" class="home__img">
                 </article>
-                
+
                 <article class="home__article swiper-slide">
                   <img src="assets/images/pukul.png" alt="image" class="home__img">
                 </article>
               </div>
-              
+
               <!-- navigation buttons -->
               <div class="swiper-button-prev">
                 <i class="ri-arrow-left-long-line"></i>
@@ -152,50 +160,24 @@
           <img src="assets/images/oke.jpg" alt="image" class="quiz__img">
           <div class="quiz__swiper swiper">
             <div class="swiper-wrapper">
+                @forelse ($events as $event)
               <div class="quiz__card swiper-slide">
-                <h2 class="quiz__title">Tarian Tradisional</h2>
-                <p class="quiz__description">
-                  Cakalele adalah salah satu tarian trandisional dari maluku
-                </p>
+                <h2 class="quiz__title">{{ $event->judul }}</h2>
+                <p class="quiz__description">{{ Str::limit($event->deskripsi_singkat, 100) }}</p>
                 <div class="quiz__profile">
-                  <img src="assets/images/bambu.jpg" alt="image">
-
+                  <img src="{{ asset('storage/' . $event->gambar) }}" alt="{{ $event->judul }}">
                   <div class="quiz__info">
-                    <h3>Warisan Budaya</h3>
-                    <p>papeda</p>
+                    <h3>{{ $event->lokasi }}</h3>
+                    <p>{{ \Carbon\Carbon::parse($event->tanggal)->translatedFormat('d F Y') }}</p>
                   </div>
                 </div>
               </div>
-
+            @empty
               <div class="quiz__card swiper-slide">
-                <h2 class="quiz__title">Rumah Adat</h2>
-                <p class="quiz__description">
-                  baileo merupakan rumah adat maluku
-                </p>
-                <div class="quiz__profile">
-                  <img src="assets/images/yuyun.jpg" alt="image">
-
-                  <div class="quiz__info">
-                    <h3>Warisan Budaya</h3>
-                    <p>Yuyun</p>
-                  </div>
-                </div>
+                <h2 class="quiz__title">Belum Ada Event Tahun Ini</h2>
+                <p class="quiz__description">Event terbaru akan segera hadir di tahun {{ date('Y') }}.</p>
               </div>
-
-              <div class="quiz__card swiper-slide">
-                <h2 class="quiz__title">Makanan Khas Maluku</h2>
-                <p class="quiz__description">
-                  papeda adalah salah satu makanan khas maluku
-                </p>
-                <div class="quiz__profile">
-                  <img src="assets/images/eunwooo.jpeg" alt="image">
-
-                  <div class="quiz__info">
-                    <h3>Warisan Budaya</h3>
-                    <p>Eunwoo</p>
-                  </div>
-                </div>
-              </div>
+            @endforelse
             </div>
 
             <!-- Navigation buttons -->
@@ -236,12 +218,12 @@
             </article>
 
           </div>
-        
+
       </section>
 
     </main>
 
-    
+
     {{-- Footer --}}
     <footer class="footer">
       <div class="footer__container container grid">
@@ -258,18 +240,18 @@
               <li>
                 <a href="#" class="footer__link">About Us</a>
               </li>
-              
+
               <li>
                 <a href="#" class="footer__link">Features</a>
               </li>
-              
+
               <li>
                 <a href="#" class="footer__link">News & Blog</a>
               </li>
 
             </ul>
           </div>
-          
+
           <div>
             <h3 class="footer__title">Social</h3>
 
@@ -291,7 +273,7 @@
         &#169; Baileo GO Mollucas
       </span>
     </footer>
-    
+
     {{-- Scroll Up --}}
     <a href="" class="scrollup" id="scroll-up">
       <i class="ri-arrow-up-line"></i>
@@ -302,7 +284,7 @@
 
     {{-- swiper js --}}
     <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
-    
+
     <!-- main js-->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 

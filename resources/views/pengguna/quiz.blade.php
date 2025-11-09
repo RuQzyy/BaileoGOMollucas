@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://db.onlinewebfonts.com/c/89d11a443c316da80dcb8f5e1f63c86e?family=Bauhaus+93+V2" rel="stylesheet" type="text/css"/>
-   
+
     {{-- Favicon --}}
     <link rel="stylesheet" href="">
 
@@ -17,9 +17,9 @@
 
      <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/quiz.css') }}">
-    
+
     <title>Baileo Go Mollucas</title>
-</head> 
+</head>
 <body>
   {{-- Header --}}
     <header class="header" id="header">
@@ -40,7 +40,7 @@
               <i class="ri-close-large-line"></i>
           </div>
         </div>
-  
+
         <div class="nav__buttons">
             <!-- theme button -->
             <i class="ri-moon-fill nav__theme" id="theme-button"></i>
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </section>
- 
+
     <!-- SECTION QUIZ -->
     <section class="translate section" id="translate">
         <div class="translate__container container grid">
@@ -129,8 +129,8 @@
                 </div>
                 {{-- filter --}}
                     <div class="budaya">
-                        <div class="project-img" data-name="rumah"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="rumah">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
@@ -138,166 +138,166 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="project-img" data-name="rumah"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="rumah">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
-                        <div class="project-img" data-name="rumah"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="rumah">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="sejarah"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="sejarah">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="pakaian"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="pakaian">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="tokoh"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="tokoh">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="musik"> 
-                            <img src="assets/images/bambu.jpg" alt=""> 
+                        <div class="project-img" data-name="musik">
+                            <img src="assets/images/bambu.jpg" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="musik"> 
-                            <img src="assets/images/bambu.jpg" alt=""> 
+                        <div class="project-img" data-name="musik">
+                            <img src="assets/images/bambu.jpg" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="musik"> 
-                            <img src="assets/images/bambu.jpg" alt=""> 
+                        <div class="project-img" data-name="musik">
+                            <img src="assets/images/bambu.jpg" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="alat"> 
-                            <img src="assets/images/eunwooo.jpeg" alt=""> 
+                        <div class="project-img" data-name="alat">
+                            <img src="assets/images/eunwooo.jpeg" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="alat"> 
-                            <img src="assets/images/bambu.jpg" alt=""> 
+                        <div class="project-img" data-name="alat">
+                            <img src="assets/images/bambu.jpg" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="alat"> 
-                            <img src="assets/images/bambu.jpg" alt=""> 
+                        <div class="project-img" data-name="alat">
+                            <img src="assets/images/bambu.jpg" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                         <div class="project-img" data-name="makanan">
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="makanan"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="makanan">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="makanan"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="makanan">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="cerita"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="cerita">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="cerita"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="cerita">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class="project-img" data-name="cerita"> 
-                            <img src="assets/images/logo_BGM.png" alt=""> 
+                        <div class="project-img" data-name="cerita">
+                            <img src="assets/images/logo_BGM.png" alt="">
                             <div class="overlay">
                                 <h4>Nama Rumah</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
             </div>
-        </section>  
+        </section>
 
 
 
-    
+
     {{-- Footer --}}
     <footer class="footer">
       <div class="footer__container container grid">
@@ -314,18 +314,18 @@
               <li>
                 <a href="#" class="footer__link">About Us</a>
               </li>
-              
+
               <li>
                 <a href="#" class="footer__link">Features</a>
               </li>
-              
+
               <li>
                 <a href="#" class="footer__link">News & Blog</a>
               </li>
 
             </ul>
           </div>
-          
+
           <div>
             <h3 class="footer__title">Social</h3>
 
@@ -347,96 +347,103 @@
         &#169; Baileo GO Mollucas
       </span>
     </footer>
-    
-    {{-- Scroll Up --}}
-    <a href="" class="scrollup" id="scroll-up">
-      <i class="ri-arrow-up-line"></i>
-    </a>
 
-    {{-- Scroll Reveal --}}
-    <script src="{{ asset('assets/js/scrollreveal.min.js') }}"></script>
+   {{-- Scroll Up --}}
+<a href="" class="scrollup" id="scroll-up">
+  <i class="ri-arrow-up-line"></i>
+</a>
 
-    {{-- swiper js --}}
-    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
-    
-    <!-- main js-->
-    <script src="{{ asset('assets/js/quiz.js') }}"></script>
-    
-    <script>
-    const fromText = document.getElementById('fromText');
-    const toText = document.getElementById('toText');
-    const swapBtn = document.querySelector('.trans__swap');
-    const fromLang = document.getElementById('fromLang');
-    const toLang = document.getElementById('toLang');
+{{-- Scroll Reveal --}}
+<script src="{{ asset('assets/js/scrollreveal.min.js') }}"></script>
 
+{{-- Swiper JS --}}
+<script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+
+<!-- Main JS -->
+<script src="{{ asset('assets/js/quiz.js') }}"></script>
+
+{{-- === SIMULASI TERJEMAHAN OTOMATIS === --}}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const fromText = document.getElementById('fromText');
+  const toText = document.getElementById('toText');
+  const swapBtn = document.querySelector('.trans__swap');
+  const fromLang = document.getElementById('fromLang');
+  const toLang = document.getElementById('toLang');
+  const kamus = @json($bahasa); // ← ambil data kamus dari controller
+
+  // 🔹 Tombol Tukar Bahasa
+  if (swapBtn) {
     swapBtn.addEventListener('click', () => {
-        let tempText = fromText.value;
-        let tempLang = fromLang.value;
-
-        fromText.value = toText.value;
-        toText.value = tempText;
-
-        fromLang.value = toLang.value;
-        toLang.value = tempLang;
+      const tempText = fromText.value;
+      const tempLang = fromLang.value;
+      fromText.value = toText.value;
+      toText.value = tempText;
+      fromLang.value = toLang.value;
+      toLang.value = tempLang;
     });
+  }
 
-    // simulasi translasi
+  // 🔹 Terjemahan Otomatis Saat Mengetik
+  if (fromText) {
     fromText.addEventListener('input', () => {
-        if (fromLang.value === 'id' && toLang.value === 'ambon') {
-            toText.value = fromText.value
-            .replace(/selamat pagi/gi, 'pagi e') 
-            .replace(/apa kabar/gi, 'kabarmu bagimana')
-            .replace(/terima kasih/gi, 'matur su'); 
-        } else if (fromLang.value === 'ambon' && toLang.value === 'id') {
-            toText.value = fromText.value
-            .replace(/pagi e/gi, 'selamat pagi')
-            .replace(/kabarmu bagimana/gi, 'apa kabar')
-            .replace(/matur su/gi, 'terima kasih');
-        } else {
-            toText.value = fromText.value;
-        }
+      let inputText = fromText.value.toLowerCase();
+      let outputText = inputText;
+
+      if (fromLang.value === 'id' && toLang.value === 'ambon') {
+        kamus.forEach(item => {
+          const regex = new RegExp(`\\b${item.indonesia}\\b`, 'gi');
+          outputText = outputText.replace(regex, item.ambon);
+        });
+      } else if (fromLang.value === 'ambon' && toLang.value === 'id') {
+        kamus.forEach(item => {
+          const regex = new RegExp(`\\b${item.ambon}\\b`, 'gi');
+          outputText = outputText.replace(regex, item.indonesia);
+        });
+      }
+
+      toText.value = outputText;
     });
-    </script>
-    <script>
-        // Ambil elemen modal
-        const modal = document.getElementById('infoModal');
-        const closeBtn = document.querySelector('.modal .close');
+  }
+});
+</script>
 
-        // Tombol "Lihat"
-        const lihatBtns = document.querySelectorAll('.btn');
+{{-- === MODAL UNTUK DETAIL (TIDAK DIUBAH) === --}}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('infoModal');
+  const closeBtn = document.querySelector('.modal .close');
+  const lihatBtns = document.querySelectorAll('.btn');
 
-        lihatBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-            e.preventDefault();
+  if (!modal) return;
 
-            // Contoh isi modal (nanti bisa diganti dengan data dari database)
-            const card = btn.closest('.project-img');
-            const title = card.querySelector('h4').innerText;
-            const imgSrc = card.querySelector('img').getAttribute('src');
+  lihatBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = btn.closest('.project-img');
+      const title = card.querySelector('h4')?.innerText || '';
+      const imgSrc = card.querySelector('img')?.getAttribute('src') || '';
 
-            // Update isi modal
-            modal.querySelector('.modal-title').innerText = title;
-            modal.querySelector('.modal-img').setAttribute('src', imgSrc);
-            modal.querySelector('.modal-desc').innerText =
-                'Deskripsi detail tentang ' + title + ' akan muncul di sini.';
+      modal.querySelector('.modal-title').innerText = title;
+      modal.querySelector('.modal-img').setAttribute('src', imgSrc);
+      modal.querySelector('.modal-desc').innerText =
+        'Deskripsi detail tentang ' + title + ' akan muncul di sini.';
+      modal.style.display = 'flex';
+    });
+  });
 
-            // Tampilkan modal
-            modal.style.display = 'flex';
-            });
-        });
+  closeBtn?.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
 
-        // Tutup modal jika klik tombol X
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+</script>
 
-        // Tutup modal jika klik area luar
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-            modal.style.display = 'none';
-            }
-        });
-    </script>
 
 
 </body>
