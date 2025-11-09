@@ -20,9 +20,19 @@ class BahasaController extends Controller
             'ambon' => 'required|string|max:255',
         ]);
 
+        $indonesia = strtolower(trim($request->indonesia));
+        $ambon = strtolower(trim($request->ambon));
+
+        // ✅ Cek hanya berdasarkan kolom 'indonesia'
+        $exists = Bahasa::where('indonesia', $indonesia)->exists();
+
+        if ($exists) {
+            return redirect()->back()->with('error', 'Kata bahasa Indonesia sudah ada dalam database!');
+        }
+
         Bahasa::create([
-            'indonesia' => strtolower(trim($request->indonesia)),
-            'ambon' => strtolower(trim($request->ambon)),
+            'indonesia' => $indonesia,
+            'ambon' => $ambon,
         ]);
 
         return redirect()->back()->with('success', 'Kata berhasil ditambahkan!');
@@ -31,14 +41,27 @@ class BahasaController extends Controller
     public function update(Request $request, $id)
     {
         $bahasa = Bahasa::findOrFail($id);
+
         $request->validate([
             'indonesia' => 'required|string|max:255',
             'ambon' => 'required|string|max:255',
         ]);
 
+        $indonesia = strtolower(trim($request->indonesia));
+        $ambon = strtolower(trim($request->ambon));
+
+        // ✅ Cegah duplikasi 'indonesia' saja, bukan 'ambon'
+        $exists = Bahasa::where('indonesia', $indonesia)
+            ->where('id', '!=', $id)
+            ->exists();
+
+        if ($exists) {
+            return redirect()->back()->with('error', 'Kata bahasa Indonesia sudah ada dalam database!');
+        }
+
         $bahasa->update([
-            'indonesia' => strtolower(trim($request->indonesia)),
-            'ambon' => strtolower(trim($request->ambon)),
+            'indonesia' => $indonesia,
+            'ambon' => $ambon,
         ]);
 
         return redirect()->back()->with('success', 'Kata berhasil diperbarui!');
