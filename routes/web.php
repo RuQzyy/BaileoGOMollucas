@@ -59,6 +59,12 @@ Route::prefix('admin')->group(function () {
 | event
 |--------------------------------------------------------------------------
 */
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/event', [EventController::class, 'index'])->name('admin.event');
+    Route::post('/event', [EventController::class, 'store'])->name('admin.event.store');
+    Route::put('/event/{id}', [EventController::class, 'update'])->name('admin.event.update');
+    Route::delete('/event/{id}', [EventController::class, 'destroy'])->name('admin.event.destroy');
+});
 
 
 /*
@@ -66,12 +72,6 @@ Route::prefix('admin')->group(function () {
 | Bahasa CRUD
 |--------------------------------------------------------------------------
 */
-Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/bahasa', [BahasaController::class, 'index'])->name('admin.bahasa');
-    Route::post('/bahasa', [BahasaController::class, 'store'])->name('admin.bahasa.store');
-    Route::post('/bahasa/{id}/update', [BahasaController::class, 'update'])->name('admin.bahasa.update');
-    Route::delete('/bahasa/{id}', [BahasaController::class, 'destroy'])->name('admin.bahasa.destroy');
-});
 
 
 /*
@@ -85,7 +85,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/bahasa', [BahasaController::class, 'index'])->name('admin.bahasa');
     Route::post('/bahasa', [BahasaController::class, 'store'])->name('admin.bahasa.store');
-    Route::post('/bahasa/{id}/update', [BahasaController::class, 'update'])->name('admin.bahasa.update');
+    Route::put('/bahasa/{id}', [BahasaController::class, 'update'])->name('admin.bahasa.update');
     Route::delete('/bahasa/{id}', [BahasaController::class, 'destroy'])->name('admin.bahasa.destroy');
 });
 

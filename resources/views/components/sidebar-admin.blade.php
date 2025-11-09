@@ -33,9 +33,13 @@
     </nav>
   </div>
 
-  <!-- Tombol Logout -->
-  <a href="{{ route('logout') }}"
-     class="flex items-center p-2.5 bg-red-500 hover:bg-red-600 rounded-lg transition text-sm font-medium">
+ <!-- Tombol Logout -->
+<form method="POST" action="{{ route('logout') }}">
+  @csrf
+  <button type="submit"
+    class="flex items-center w-full p-2.5 bg-red-500 hover:bg-red-600 rounded-lg transition text-sm font-medium text-left">
     <i data-lucide="log-out" class="w-5 h-5 mr-3"></i> Logout
-  </a>
+  </button>
+</form>
+
 </aside>
