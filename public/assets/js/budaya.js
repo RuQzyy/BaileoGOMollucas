@@ -182,7 +182,151 @@ window.addEventListener('click', (e) => {
   }
 });
 
+// ========================
+// SEARCH FILTER GALLERY
+// ========================
+const searchInput = document.getElementById('search-input');
+const dropdownSpan = document.getElementById('span'); // ambil kategori aktif
+const allImages = document.querySelectorAll('.project-img');
+const noResultMessage = document.getElementById('no-result-message'); // ambil div pesan
 
+if (searchInput) {
+  searchInput.addEventListener('keyup', e => {
+    const searchValue = e.target.value.toLowerCase().trim();
+    const selectedCategoryText = dropdownSpan.innerText.toLowerCase().trim();
+
+    const categoryMap = {
+      'semua': 'semua',
+      'rumah adat': 'rumah',
+      'pakaian tradisional': 'pakaian',
+      'musik tradisional': 'musik',
+      'alat musik tradisional': 'alat',
+      'makan tradisional': 'makanan',
+      'sejarah': 'sejarah',
+      'cerita rakyat': 'cerita',
+      'tokoh': 'tokoh'
+    };
+
+    const selectedCategory = categoryMap[selectedCategoryText] || 'semua';
+    let found = false;
+
+    allImages.forEach(image => {
+      const title = image.querySelector('h4')?.innerText.toLowerCase() || '';
+      const category = image.getAttribute('data-name').toLowerCase();
+
+      const matchSearch = title.includes(searchValue);
+      const matchCategory = selectedCategory === 'semua' || category === selectedCategory;
+
+      if (matchSearch && matchCategory) {
+        image.style.display = 'block';
+        found = true;
+      } else {
+        image.style.display = 'none';
+      }
+    });
+
+    // tampilkan atau sembunyikan pesan tidak ada hasil
+    if (noResultMessage) {
+      noResultMessage.style.display = found ? 'none' : 'block';
+    }
+  });
+}
+
+
+
+
+
+let dropdownBtn = document.getElementById("drop-text");
+let list = document.getElementById("list");
+let icon = document.getElementById("icon");
+let span = document.getElementById("span");
+let input = document.getElementById("search-input");
+let listItems = document.querySelectorAll(".dropdown-list-item");
+
+// show dropdown list
+dropdownBtn.onclick = function(){
+    // rotate arrow icon
+    if(list.classList.contains('show')){
+        icon.style.rotate = "0deg";
+    }else{
+        icon.style.rotate = "-180deg";
+    }
+    list.classList.toggle("show");
+    
+}
+
+// hide dropdown list
+window.onclick = function(e){
+    if(e.target.id !== "drop-text" && e.target.id !== "span" && e.target.id !== "icon"){
+        list.classList.remove("show");
+        icon.style.rotate = "0deg";
+    }
+}
+
+for(item of listItems){
+    item.onclick=function(e){
+        // change dropdown btn text onclick
+        span.innerText = e.target.innerText;
+
+        input.placeholder = "Cari " + e.target.innerText + "...";
+
+        // langsung update hasil filter setiap kali dropdown berubah
+      const searchEvent = new Event('keyup');
+      input.dispatchEvent(searchEvent);
+
+    };
+}
+
+
+// var TrandingSlider = new Swiper('.tranding-slider', {
+//     effect: 'coverflow',
+//     grabCursor: true,
+//     centeredSlides: true,
+//     loop: true,
+//     slidesPerView: 'auto',
+//     coverflowEffect: {
+//         rotate: 0,
+//         stretch: 0,
+//         depth: 100,
+//         modifier: 2.5,
+//         slideShadows: false,
+//     },
+//     pagination: {
+//         el: '.swiper-pagination',
+//         clickable: true,
+//     },
+//     navigation: {
+//         nextEl: '.swiper-button-next',
+//         prevEl: '.swiper-button-prev',
+//     }
+// });
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 5,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 50,
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints: {
+        0: {
+            slidesPerView: 1.5,
+            spaceBetween: 20
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 30
+        },
+        1200: {
+            slidesPerView: 5,
+            spaceBetween: 50
+        }
+    }
+});
 
 
 sr.reveal(`.home__container, .quiz__container, .footer__container`)

@@ -105,18 +105,296 @@
 
       {{-- gallery --}}
     </main>
+
+    {{-- slider rekomendasi --}}
+    {{-- <section id="tranding">
+      <div class="containerr">
+        <h1 class="text-center section-heading">Rekomendasi Tempat Wisata</h1>
+        <p class="con-p">Nikmati pengalaman wisata yang menenangkan di sudut-sudut indah Kota Ambon. </p>
+      </div>
+       <div class="containerr ">
+        <div class="swiper tranding-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="assets/images/wisata.jpg" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="tokohUp">Wisata</h1>
+                <div class="tranding-slider-content-bottom">
+                  <h2 class="tokoh-name">
+                    Pantai Ora
+                  </h2>
+                  <h3 class="asal">
+                    <span>Maluku</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="assets/images/ikan_kuah.jpeg" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="tokohUp">Makanan Khas</h1>
+                <div class="tranding-slider-content-bottom">
+                  <h2 class="tokoh-name">
+                    Ikan Kuah Kuning
+                  </h2>
+                  <h3 class="asal">
+                    <span>Maluku</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="assets/images/martha-christina-tijahahu.jpeg" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="tokohUp">Tokoh</h1>
+                <div class="tranding-slider-content-bottom">
+                  <h2 class="tokoh-name">
+                    Martha Christina Tijahahu
+                  </h2>
+                  <h3 class="asal">
+                    <span>Maluku</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="assets/images/ilustrasi-kapitan-pattimura.jpeg" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="tokohUp">Tokoh</h1>
+                <div class="tranding-slider-content-bottom">
+                  <h2 class="tokoh-name">
+                    Kapitan Pattimura
+                  </h2>
+                  <h3 class="asal">
+                    <span>Maluku</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="assets/images/nuku-muhammad-amiruddin.jpeg" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="tokohUp">Tokoh</h1>
+                <div class="tranding-slider-content-bottom">
+                  <h2 class="tokoh-name">
+                    Nuku Muhammad Amiruddin
+                  </h2>
+                  <h3 class="asal">
+                    <span>Maluku</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="assets/images/nuku-muhammad-amiruddin.jpeg" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="tokohUp">Tokoh</h1>
+                <div class="tranding-slider-content-bottom">
+                  <h2 class="tokoh-name">
+                    Nuku Muhammad Amiruddin
+                  </h2>
+                  <h3 class="asal">
+                    <span>Maluku</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="assets/images/dr-johannes-leimena.jpeg" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="tokohUp">Tokoh</h1>
+                <div class="tranding-slider-content-bottom">
+                  <h2 class="tokoh-name">
+                    Dr. Johannes Leimena
+                  </h2>
+                  <h3 class="asal">
+                    <span>Maluku</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tranding-slider-control">
+            <div class="swiper-button-prev slider-arrow">
+              <i class="ri-arrow-left-wide-fill"></i>
+            </div>
+            <div class="swiper-button-next slider-arrow">
+              <i class="ri-arrow-right-wide-fill"></i>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+       </div>
+    </section> --}}
+
+    <section class="heritage-slider">
+        <div class="containerr">
+          <h1 class="text-center section-heading">Rekomendasi Tempat Wisata</h1>
+          <p class="con-p">Nikmati pengalaman wisata yang menenangkan di sudut-sudut indah Kota Ambon. </p>
+        </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <!-- CARD 1 -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <img src="assets/images/wisata.jpg" alt="">
+                        <div class="caption">
+                            <h3>judul1</h3>
+                            <p>Benteng bersejarah peninggalan VOC<br>yang dibangun pada abad ke-17</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <img src="assets/images/wisata.jpg" alt="">
+                        <div class="caption">
+                            <h3>judul 2</h3>
+                            <p>Benteng bersejarah peninggalan VOC<br>yang dibangun pada abad ke-17</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD TENGAH BESAR -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <img src="assets/images/wisata.jpg" alt="">
+                        <div class="caption">
+                            <h3>judul 3</h3>
+                            <p>Benteng bersejarah peninggalan VOC<br>yang dibangun pada abad ke-17</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <img src="assets/images/wisata.jpg" alt="">
+                        <div class="caption">
+                            <h3>judul 4</h3>
+                            <p>Benteng bersejarah peninggalan VOC<br>yang dibangun pada abad ke-17</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <img src="assets/images/wisata.jpg" alt="">
+                        <div class="caption">
+                            <h3>judul 5</h3>
+                            <p>Benteng bersejarah peninggalan VOC<br>yang dibangun pada abad ke-17</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 5 -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <img src="assets/images/wisata.jpg" alt="">
+                        <div class="caption">
+                            <h3>judul 6</h3>
+                            <p>Benteng bersejarah peninggalan VOC<br>yang dibangun pada abad ke-17</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 5 -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <img src="assets/images/wisata.jpg" alt="">
+                        <div class="caption">
+                            <h3>judul 7</h3>
+                            <p>Benteng bersejarah peninggalan VOC<br>yang dibangun pada abad ke-17</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 5 -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <img src="assets/images/wisata.jpg" alt="">
+                        <div class="caption">
+                            <h3>judul 8</h3>
+                            <p>Benteng bersejarah peninggalan VOC<br>yang dibangun pada abad ke-17</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PANAH -->
+            <div class="swiper-button-prev"><i class="ri-arrow-left-s-fill"></i></div>
+            <div class="swiper-button-next"><i class="ri-arrow-right-s-fill"></i></div>
+
+        </div>
+
+        <!-- TOMBOL LIHAT SEMUA -->
+        <div class="lihat-semua">
+            <a href="#">Lihat Semua →</a>
+        </div>
+
+    </section>
+
+
+
+
         <section id="projects">
             <div class="con">
             <h2 class="section__title"> Jelajahi Budaya</h2>
+                
+            {{-- search bar start --}}
+            <div class="search-bar">
+                {{-- dropdown --}}
+                <div class="dropdown">
+                    <div id="drop-text" class="dropdown-text">
+                        <span id="span">Semua</span>
+                        <i id="icon" class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <ul id="list" class="dropdown-list">
+                        <li class="dropdown-list-item" data-name="semua">Semua</li>
+                        <li class="dropdown-list-item" data-name="rumah">Rumah Adat</li>
+                        <li class="dropdown-list-item" data-name="pakaian">Pakaian Tradisional</li>
+                        <li class="dropdown-list-item" data-name="musik">Musik Tradisional</li>
+                        <li class="dropdown-list-item" data-name="alat">Alat Musik Tradisional</li>
+                        <li class="dropdown-list-item" data-name="makan">Makan Tradisional</li>
+                        <li class="dropdown-list-item" data-name="sejarah">Sejarah</li>
+                        <li class="dropdown-list-item" data-name="cerita">Cerita Rakyat</li>
+                        <li class="dropdown-list-item" data-name="tokoh">Tokoh</li>
+                    </ul>
+                </div>
+                
+
+                {{-- search box input --}}
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Cari">
+                    <i class="ri-search-2-line"></i>
+                </div>
+            </div>    
+
                 {{-- menu link --}}
-                <div class="items-link">
+                {{-- <div class="items-link">
                     <span class="item-link menu-active" data-name="rumah">Rumah Adat</span>
                     <span class="item-link " data-name="pakaian">Pakaian </span>
                     <span class="item-link " data-name="musik">Musik </span>
                     <span class="item-link " data-name="alat">Alat Musik </span>
                     <span class="item-link " data-name="makanan">Makanan </span>
                     <span class="item-link " data-name="cerita">Cerita Rakyat</span>
-                </div>
+                </div> --}}
                 {{-- filter --}}
                     <div class="budaya">
                         <div class="project-img" data-name="rumah"> 
@@ -203,7 +481,7 @@
                         <div class="project-img" data-name="alat"> 
                             <img src="assets/images/eunwooo.jpeg" alt=""> 
                             <div class="overlay">
-                                <h4>Nama Rumah</h4>
+                                <h4>eunwoo adalah jodohnya yuyun</h4>
                                 <div class="action-aria">
                                     <a href="#" class="btn">Lihat</a>
                                 </div>
@@ -282,8 +560,11 @@
                             </div> 
                         </div>
                     </div>
+                    <div id="no-result-message" class="no-result" style="display:none;">
+                        <p>Maaf, data belum ada <i class="ri-emotion-sad-line"></i><br>Apakah kamu ingin menanyakan di <a href="#chatbot" class="ask-chatbot">ChatBot?</a></p>
+                    </div>
             </div>
-        </section>      
+        </section> 
         <!-- Modal container -->
         <div id="myModal" class="modal">
             <div class="modal-content">
@@ -306,59 +587,82 @@
 
     
     {{-- Footer --}}
-    <footer class="footer">
-      <div class="footer__container container grid">
-        <a href="#" class="footer__logo">
-          <img src="assets/images/logo2.png" alt="image" class="footer__logo-img">
-          <span>BaileoGO<br>Mollucas</span>
-        </a>
+    <footer>
 
-        <div class="footer__content grid">
-          <div>
-            <h3 class="footer__title">About</h3>
+      <svg class="footer-wave-design" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#F26B3A" fill-opacity="1"
+          d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+      </svg>
 
-            <ul class="footer__links">
-              <li>
-                <a href="#" class="footer__link">About Us</a>
-              </li>
-              
-              <li>
-                <a href="#" class="footer__link">Features</a>
-              </li>
-              
-              <li>
-                <a href="#" class="footer__link">News & Blog</a>
-              </li>
+      <div class="footer-container">
 
-            </ul>
-          </div>
-          
-          <div>
-            <h3 class="footer__title">Social</h3>
+        <!-- LOGO -->
+        <div class="footer-section about">
+          <a href="#" class="footer__logo">
+            <img src="assets/images/logo2.png" alt="image" class="footer__logo-img">
+            <span>BaileoGO<br>Mollucas</span>
+          </a>
+        </div>
 
-            <div class="footer__social">
-              <a href="#" target="_blank" class="footer__social-link">
-                <i class="ri-facebook-circle-fill"></i>
-              </a>
-              <a href="#" target="_blank" class="footer__social-link">
-                <i class="ri-instagram-fill"></i>
-              </a>
-              <a href="#" target="_blank" class="footer__social-link">
-                <i class="ri-twitter-x-fill"></i>
-              </a>
-            </div>
+        <!-- LINKS -->
+        <div class="footer-section links2">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="{{ route('pengguna.index') }}">Home</a></li>
+            <li><a href="#">Quiz</a></li>
+            <li><a href="#">Budaya</a></li>
+          </ul>
+        </div>
+
+        <!-- RESOURCE -->
+        <div class="footer-section resources">
+          <h2>Resource</h2>
+          <ul>
+            <li><a href="#">Tarian Tradisional</a></li>
+            <li><a href="#">Pakaian Tradisional</a></li>
+            <li><a href="#">Makanan Khas Maluku</a></li>
+            <li><a href="#">Musik Tradisional</a></li>
+          </ul>
+        </div>
+
+        <!-- MAPS MASK -->
+        <div class="footer-section newsletter">
+          <h2>Maps Maluku</h2>
+
+          <div class="map-mask" onclick="window.location='{{ route('pengguna.budaya') }}'">
+            <img src="assets/images/mapss2.png" alt="maps">
           </div>
         </div>
+
       </div>
-      <span class="footer__copy">
-        &#169; Baileo GO Mollucas
-      </span>
+
+      <!-- BOTTOM -->
+      <div class="footer-bottom">
+        <div class="social-icons">
+          <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+          <a href="#"><i class="ri-instagram-fill"></i></a>
+          <a href="#"><i class="ri-twitter-x-fill"></i></a>
+        </div>
+
+        <p>
+          <i class="ri-copyright-line"></i>
+          2025 <span class="brand-name"><a href="{{ route('pengguna.index') }}">BaileoGOMollucas</a></span>
+        </p>
+      </div>
+
     </footer>
     
     {{-- Scroll Up --}}
     <a href="" class="scrollup" id="scroll-up">
       <i class="ri-arrow-up-line"></i>
     </a>
+
+    <a href="#chatbot" target="_blank" class="chatbot">
+        <i class="ri-telegram-2-fill"></i>
+    </a>
+
+
 
     {{-- Scroll Reveal --}}
     <script src="{{ asset('assets/js/scrollreveal.min.js') }}"></script>
@@ -371,7 +675,7 @@
 
     <script>
         // Ambil elemen modal
-        const modal = document.getElementById('infoModal');
+        const modal = document.getElementById('myModal');
         const closeBtn = document.querySelector('.modal .close');
 
         // Tombol "Lihat"
@@ -389,7 +693,7 @@
             // Update isi modal
             modal.querySelector('.modal-title').innerText = title;
             modal.querySelector('.modal-img').setAttribute('src', imgSrc);
-            modal.querySelector('.modal-desc').innerText =
+            modal.querySelector('.modal-description p').innerText =
                 'Deskripsi detail tentang ' + title + ' akan muncul di sini.';
 
             // Tampilkan modal
@@ -408,7 +712,8 @@
             modal.style.display = 'none';
             }
         });
-        </script>
+    </script>
+
 
     
 </body>

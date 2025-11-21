@@ -30,7 +30,11 @@ Route::get('/', [PenggunaController::class, 'index'])->name('pengguna.index');
 Route::get('/index', [PenggunaController::class, 'index'])->name('pengguna.index');
 Route::get('/quiz', [PenggunaController::class, 'quiz'])->name('pengguna.quiz');
 Route::get('/budaya', [PenggunaController::class, 'budaya'])->name('pengguna.budaya');
-Route::get('/reservation', [PenggunaController::class, 'reservation'])->name('pengguna.reservation');
+Route::get('/test', [PenggunaController::class, 'test'])->name('pengguna.test');
+Route::get('/isiBudaya', [PenggunaController::class, 'isiBudaya'])->name('pengguna.isiBudaya');
+Route::get('/agendaBudaya', [PenggunaController::class, 'agendaBudaya'])->name('pengguna.agendaBudaya');
+Route::get('/chatBot', [PenggunaController::class, 'chatBot'])->name('pengguna.chatBot');
+Route::get('/soalQuiz', [PenggunaController::class, 'soalQuiz'])->name('pengguna.soalQuiz');
 
 
 /*
