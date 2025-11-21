@@ -35,6 +35,7 @@
           <ul class="nav__list">
             <li><a href="{{ route('pengguna.index') }}" class="nav__link active-link">Home</a></li>
             <li><a href="{{ route('pengguna.quiz') }}" class="nav__link ">Quiz</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}" class="nav__link ">Budaya</a></li>
             <li>
             <a href="#" class="nav__link"
                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

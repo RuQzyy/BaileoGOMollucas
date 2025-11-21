@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use Carbon\Carbon;
 use App\Models\Bahasa;
+use App\Models\Test;
 
 
 class PenggunaController extends Controller
@@ -21,6 +22,34 @@ class PenggunaController extends Controller
     public function budaya()
     {
         return view('pengguna.budaya');
+    }
+
+    // Halaman budaya
+    public function test()
+    {
+        return view('pengguna.test');
+    }
+
+    // Halaman budaya
+    public function isiBudaya()
+    {
+        return view('pengguna.isiBudaya');
+    }
+
+    // Halaman budaya
+    public function agendaBudaya()
+    {
+        return view('pengguna.agendaBudaya');
+    }
+    // Halaman budaya
+    public function chatBot()
+    {
+        return view('pengguna.chatBot');
+    }
+    // Halaman budaya
+    public function soalQuiz()
+    {
+        return view('pengguna.soalQuiz');
     }
 
     // Halaman reservation
