@@ -7,6 +7,11 @@ use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\BudayaController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\BahasaController;
+use App\Http\Controllers\PitchController;
+use App\Http\Controllers\QuizController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +40,12 @@ Route::get('/reservation', [PenggunaController::class, 'reservation'])->name('pe
 */
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-      Route::get('/admin/budaya', [AdminController::class, 'budaya'])->name('admin.budaya');
-      Route::get('/admin/event', [EventController::class, 'index'])->name('admin.event');
-          Route::get('/admin/bahasa', [BahasaController::class, 'bahasa'])->name('admin.bahasa');
+    Route::get('/admin/budaya', [AdminController::class, 'budaya'])->name('admin.budaya');
+    Route::get('/admin/event', [EventController::class, 'index'])->name('admin.event');
+    Route::get('/admin/bahasa', [BahasaController::class, 'bahasa'])->name('admin.bahasa');
+    Route::get('/baileobot', [AdminController::class, 'baileobot'])->name('admin.baileobot');
+    Route::post('/baileobot/ask', [AdminController::class, 'askBaileobot'])->name('admin.baileobot.ask');
+
 });
 
 /*
@@ -66,11 +74,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 });
 
 
-/*
-|--------------------------------------------------------------------------
-| Bahasa CRUD
-|--------------------------------------------------------------------------
-*/
+
 
 
 /*
@@ -99,6 +103,29 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| machine learning faruqq
+|--------------------------------------------------------------------------
+*/
+Route::post('/detect-pitch', [PitchController::class, 'detect']);
+Route::get('/musik', function () {
+    return view('pengguna.musik');
+});
+
+/*
+|--------------------------------------------------------------------------
+| quiz
+|--------------------------------------------------------------------------
+*/
+Route::prefix('admin')->group(function () {
+    Route::get('/quiz', [QuizController::class, 'index'])->name('admin.quiz');
+    Route::post('/quiz', [QuizController::class, 'store'])->name('admin.quiz.store');
+    Route::put('/quiz/{id}', [QuizController::class, 'update'])->name('admin.quiz.update');
+    Route::delete('/quiz/{id}', [QuizController::class, 'destroy'])->name('admin.quiz.destroy');
 });
 
 require __DIR__.'/auth.php';

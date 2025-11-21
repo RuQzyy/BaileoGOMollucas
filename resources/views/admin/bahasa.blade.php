@@ -34,7 +34,6 @@
   </div>
 @endif
 
-
 <!-- 🧠 SIMULASI TERJEMAHAN -->
 <section class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 mb-8">
   <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
@@ -42,29 +41,41 @@
     Simulasi Terjemahan Bahasa Indonesia ↔ Ambon
   </h3>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- INDONESIA INPUT + MIC -->
     <div>
       <label class="text-sm font-medium text-gray-700">Bahasa Indonesia</label>
-      <textarea id="indonesiaInputTranslate" rows="4"
-        class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
-        placeholder="Contoh: saya makan nasi..."></textarea>
+      <div class="relative mt-1">
+        <textarea id="indonesiaInputTranslate" rows="4"
+          class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
+          placeholder="Contoh: saya makan nasi..."></textarea>
+
+        <button id="voiceInputBtn" type="button"
+          class="absolute bottom-2 right-2 bg-blue-600 text-white p-2 rounded-lg shadow hover:bg-blue-700">
+          <i data-lucide="mic" class="w-4 h-4"></i>
+        </button>
+      </div>
     </div>
+
+    <!-- AMBON OUTPUT + SPEAKER -->
     <div>
       <label class="text-sm font-medium text-gray-700">Hasil Terjemahan (Bahasa Ambon)</label>
-      <textarea id="ambonResultTranslate" rows="4" readonly
-        class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2 bg-gray-50 text-gray-700"></textarea>
-    </div>
-  </div>
+      <div class="relative mt-1">
+        <textarea id="ambonResultTranslate" rows="4" readonly
+          class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-gray-50 text-gray-700"></textarea>
 
-  <div class="flex justify-end mt-4">
-    <button id="translateBtn"
-      class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow flex items-center gap-2">
-      <i data-lucide="arrow-right" class="w-4 h-4"></i> Terjemahkan
-    </button>
+        <button id="playVoiceBtn" type="button"
+          class="absolute bottom-2 right-2 bg-green-600 text-white p-2 rounded-lg shadow hover:bg-green-700">
+          <i data-lucide="volume-2" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- 📋 TABEL DATA -->
+<!-- TABEL -->
 <section class="bg-white shadow-md rounded-xl p-5 overflow-x-auto">
   <h3 class="text-lg font-semibold text-blue-700 mb-4 flex items-center">
     <i data-lucide="book-open" class="w-5 h-5 mr-2"></i>
@@ -109,86 +120,94 @@
   </table>
 </section>
 
-<!-- 🪟 MODAL TAMBAH -->
+<!-- MODAL TAMBAH DATA -->
 <div id="addModal" class="hidden fixed inset-0 bg-black/40 z-50 flex items-center justify-center">
   <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
-    <h3 class="text-lg font-semibold mb-4 text-blue-700">Tambah Kata Baru</h3>
+    <h3 class="text-lg font-semibold mb-4">Tambah Kata Baru</h3>
     <form action="{{ route('admin.bahasa.store') }}" method="POST">
       @csrf
-      <div class="mb-3">
-        <label class="text-sm text-gray-700 font-medium">Bahasa Indonesia</label>
-        <input type="text" name="indonesia" required class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div class="mb-3">
-        <label class="text-sm text-gray-700 font-medium">Bahasa Ambon</label>
-        <input type="text" name="ambon" required class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div class="flex justify-end space-x-2 mt-5">
-        <button type="button" id="closeAddModal" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg">Batal</button>
-        <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Simpan</button>
+      <label class="block text-sm font-medium">Bahasa Indonesia</label>
+      <input type="text" name="indonesia" class="w-full border rounded-lg px-3 py-2 mb-3" required>
+
+      <label class="block text-sm font-medium">Bahasa Ambon</label>
+      <input type="text" name="ambon" class="w-full border rounded-lg px-3 py-2 mb-4" required>
+
+      <div class="flex justify-end space-x-2">
+        <button type="button" id="closeAddModal" class="px-4 py-2 rounded-lg bg-gray-300">Batal</button>
+        <button type="submit" class="px-4 py-2 rounded-lg bg-blue-600 text-white">Simpan</button>
       </div>
     </form>
   </div>
 </div>
 
-<!-- 🪟 MODAL EDIT -->
+<!-- MODAL EDIT DATA -->
 <div id="editModal" class="hidden fixed inset-0 bg-black/40 z-50 flex items-center justify-center">
   <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
-    <h3 class="text-lg font-semibold mb-4 text-blue-700">Edit Kata</h3>
+    <h3 class="text-lg font-semibold mb-4">Edit Data Bahasa</h3>
     <form id="editForm" method="POST">
       @csrf
       @method('PUT')
-      <div class="mb-3">
-        <label class="text-sm text-gray-700 font-medium">Bahasa Indonesia</label>
-        <input type="text" id="editIndonesia" name="indonesia" required class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div class="mb-3">
-        <label class="text-sm text-gray-700 font-medium">Bahasa Ambon</label>
-        <input type="text" id="editAmbon" name="ambon" required class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div class="flex justify-end space-x-2 mt-5">
-        <button type="button" id="closeEditModal" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg">Batal</button>
-        <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Update</button>
+
+      <label class="block text-sm font-medium">Bahasa Indonesia</label>
+      <input type="text" id="editIndonesia" name="indonesia" class="w-full border rounded-lg px-3 py-2 mb-3" required>
+
+      <label class="block text-sm font-medium">Bahasa Ambon</label>
+      <input type="text" id="editAmbon" name="ambon" class="w-full border rounded-lg px-3 py-2 mb-4" required>
+
+      <div class="flex justify-end space-x-2">
+        <button type="button" id="closeEditModal" class="px-4 py-2 rounded-lg bg-gray-300">Batal</button>
+        <button type="submit" class="px-4 py-2 rounded-lg bg-green-600 text-white">Update</button>
       </div>
     </form>
   </div>
 </div>
 
-<!-- ✅ DataTables CDN -->
+<script>
+// OPEN ADD MODAL
+const addBtn = document.getElementById('addBahasaBtn');
+const addModal = document.getElementById('addModal');
+const closeAdd = document.getElementById('closeAddModal');
+
+addBtn.onclick = () => addModal.classList.remove('hidden');
+closeAdd.onclick = () => addModal.classList.add('hidden');
+
+// OPEN EDIT MODAL
+const editButtons = document.querySelectorAll('.editBtn');
+const editModal = document.getElementById('editModal');
+const closeEdit = document.getElementById('closeEditModal');
+const editForm = document.getElementById('editForm');
+
+editButtons.forEach(btn => {
+  btn.onclick = () => {
+    const id = btn.dataset.id;
+    const indonesia = btn.dataset.indonesia;
+    const ambon = btn.dataset.ambon;
+
+    document.getElementById('editIndonesia').value = indonesia;
+    document.getElementById('editAmbon').value = ambon;
+    editForm.action = `/admin/bahasa/${id}`;
+
+    editModal.classList.remove('hidden');
+  };
+});
+
+closeEdit.onclick = () => editModal.classList.add('hidden');
+</script>
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-
-<style>
-  div.dataTables_wrapper { font-size: 0.9rem; margin-top: 1rem; }
-  .dataTables_filter input, .dataTables_length select {
-    border: 1px solid #d1d5db; border-radius: 0.5rem; padding: 0.4rem 0.75rem;
-  }
-  .dataTables_paginate .paginate_button {
-    background-color: white; border: 1px solid #d1d5db; border-radius: 0.375rem;
-    padding: 0.3rem 0.6rem; font-size: 0.85rem; font-weight: 500;
-  }
-  .dataTables_paginate .paginate_button.current {
-    background-color: #2563eb; color: white !important; border-color: #2563eb;
-  }
-</style>
 
 <script>
 lucide.createIcons();
 const kamus = @json($bahasa);
 
+// DATATABLE
 $(document).ready(function () {
   const table = $('#bahasaTable').DataTable({
     pageLength: 10,
     ordering: true,
     order: [[1, 'asc']],
-    language: {
-      search: "", searchPlaceholder: "Cari kata...",
-      lengthMenu: "Tampilkan _MENU_ data",
-      info: "Menampilkan _START_ - _END_ dari _TOTAL_ data",
-      paginate: { next: "›", previous: "‹" },
-      zeroRecords: "Tidak ada data ditemukan"
-    },
     columnDefs: [{ orderable: false, targets: [0, 3] }]
   });
 
@@ -197,37 +216,62 @@ $(document).ready(function () {
       .nodes().each((cell, i) => { cell.innerHTML = i + 1; });
     lucide.createIcons();
   }).draw();
-
-  // ===== Modal Tambah =====
-  const addModal = document.getElementById('addModal');
-  document.getElementById('addBahasaBtn').onclick = () => addModal.classList.remove('hidden');
-  document.getElementById('closeAddModal').onclick = () => addModal.classList.add('hidden');
-
-  // ===== Modal Edit (fixed event delegation) =====
-  const editModal = document.getElementById('editModal');
-  $(document).on('click', '.editBtn', function () {
-    const id = $(this).data('id');
-    const indonesia = $(this).data('indonesia');
-    const ambon = $(this).data('ambon');
-
-    $('#editIndonesia').val(indonesia);
-    $('#editAmbon').val(ambon);
-    $('#editForm').attr('action', `/admin/bahasa/${id}`);
-
-    editModal.classList.remove('hidden');
-  });
-  $('#closeEditModal').on('click', () => editModal.classList.add('hidden'));
 });
 
-// ===== Terjemahan =====
-document.getElementById('translateBtn').addEventListener('click', () => {
-  const inputText = document.getElementById('indonesiaInputTranslate').value.toLowerCase();
-  let outputText = inputText;
-  kamus.forEach(item => {
-    const regex = new RegExp(`\\b${item.indonesia}\\b`, 'gi');
-    outputText = outputText.replace(regex, item.ambon);
-  });
-  document.getElementById('ambonResultTranslate').value = outputText;
+// TERJEMAHAN OTOMATIS
+const indonesiaInput = document.getElementById('indonesiaInputTranslate');
+const ambonOutput = document.getElementById('ambonResultTranslate');
+let typingTimer;
+const delay = 300;
+
+function translateRealtime() {
+    let text = indonesiaInput.value.toLowerCase();
+    let result = text;
+    kamus.forEach(item => {
+        const regex = new RegExp(`\\b${item.indonesia}\\b`, 'gi');
+        result = result.replace(regex, item.ambon);
+    });
+    ambonOutput.value = result;
+}
+
+indonesiaInput.addEventListener('input', () => {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(translateRealtime, delay);
 });
+
+// VOICE INPUT
+const micBtn = document.getElementById('voiceInputBtn');
+let recognition;
+
+if ('webkitSpeechRecognition' in window) {
+    recognition = new webkitSpeechRecognition();
+    recognition.lang = 'id-ID';
+    recognition.continuous = false;
+
+    micBtn.onclick = () => {
+        recognition.start();
+        micBtn.classList.add('bg-blue-800');
+    };
+
+    recognition.onend = () => {
+        micBtn.classList.remove('bg-blue-800');
+    };
+
+    recognition.onresult = (e) => {
+        indonesiaInput.value += (indonesiaInput.value ? ' ' : '') + e.results[0][0].transcript;
+        translateRealtime();
+    };
+} else {
+    micBtn.onclick = () => alert('Browser tidak mendukung voice recognition');
+}
+
+// VOICE OUTPUT
+const playBtn = document.getElementById('playVoiceBtn');
+playBtn.onclick = () => {
+    const text = ambonOutput.value;
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = 'id-ID';
+    window.speechSynthesis.speak(speech);
+};
 </script>
 @endsection
