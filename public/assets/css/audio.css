@@ -117,7 +117,7 @@ img{
     --opacity-color-20: hsla(0, 0%, 15%, .2);
 }
 
-/*
+/* 
     color changes in some parts of the website, indark theme
 */
 .dark-theme .bg-header .nav__logo img{
@@ -128,10 +128,6 @@ img{
     box-shadow: 0 8px 16px hsla(0, 0%, 0%, .4);
 }
 
-.dark-theme .chatbot{
-    background-color: var(--container-color);
-}
-
 .dark-theme .search-bar {
   background: var(--black-color);
   border: none;
@@ -139,8 +135,8 @@ img{
 }
 
 .dark-theme .search-box input {
-  background-color: transparent;
-  border: none;
+  background-color: transparent; 
+  border: none;                  
   color: #f5f5f5;
 }
 
@@ -330,178 +326,213 @@ img{
     width: 60%;
 }
 
-
-
-
-.quiz-wrapper {
-    width: 80%;
-    padding: 2rem 4rem;
+.bg {
+    width: 100%;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 25%, rgba(255, 80, 20, 0.45), transparent 60%),
+        radial-gradient(circle at 80% 30%, rgba(0, 180, 90, 0.45), transparent 60%),
+        radial-gradient(circle at 50% 85%, rgba(120, 120, 120, 0.35), transparent 70%),
+        #000;
+    filter: blur(0px);
     display: flex;
     flex-direction: column;
-    align-items: center;       /* center horizontal */
-    justify-content: center;   
-    min-height: 100vh;         /* agar bisa berada di tengah layar */
-    margin: 0 auto;            /* memastikan wrapper tetap center */
-    font-family: "Montserrat", sans-serif;
-}
-
-
-/* Garis putus-putus progres */
-.quiz-progress {
-    width: 80%;
-    display: flex;
-    gap: 6px;
-    margin-bottom: 20px;
-}
-
-.quiz-progress span {
-    flex: 1;
-    height: 6px;
-    border-radius: 5px;
-    background: #ddd;
-}
-
-.quiz-progress span.active {
-    background: #ff5a1f;
-}
-
-.top-row {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
+    padding-top: 6rem;
+    color: #fff;
+  }
+  /* dark overlay + big vignette */
+  /* .bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient( circle at 50% 70%, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.8) 80%),
+      linear-gradient(135deg, rgba(255,90,30,0.08), rgba(0,120,60,0.06));
+    mix-blend-mode: multiply;
+  } */
 
-.back-btn {
-    font-size: 16px;
-    color: #444;
-    cursor: pointer;
-}
-
-.quiz-logo {
-    height: 75px;
-    object-fit: contain;
-}
-
-/* Card putih utama */
-.quiz-card {
-    width: 80%;
-    background: white;
-    border-radius: 20px;
-    padding: 3rem 4rem;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.question-number {
-    color: #ff5a1f;
-    font-size: 1.3rem;
-    text-align: center;
-}
-
-.question-text {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-/* Opsi Jawaban */
-.options {
+  .wrap{
+    width: 100%;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 25%, rgba(255, 80, 20, 0.45), transparent 60%),
+        radial-gradient(circle at 80% 30%, rgba(0, 180, 90, 0.45), transparent 60%),
+        radial-gradient(circle at 50% 85%, rgba(120, 120, 120, 0.35), transparent 70%),
+        #000;
+    filter: blur(0px);
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 25px;
-}
+    align-items: center;
+    padding-top: 6rem;
+    color: #fff;
+  }
 
-.option {
-    background: #f2f2f2;
-    padding: 14px 16px;
-    border-radius: 12px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: 0.2s;
-}
+  .card{
+    width:100%;
+    max-width: var(--card-w);
+    text-align:center;
+    color:#fff;
+    padding:44px 48px;
+    box-sizing:border-box;
+    position:relative;
+  }
 
-.option:hover {
-    background: #e9e9e9;
-}
+  .title{
+    font-weight:700;
+    color:var(--orange);
+    font-size:28px;
+    margin:0 0 8px 0;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  }
 
-/* Salah */
-.option.wrong {
-    border-color: #ff4f4f;
-    background: #ffecec;
-}
+  .sub{
+    color:rgba(255,255,255,0.9);
+    opacity:0.9;
+    margin:0 0 26px 0;
+    font-size:14px;
+  }
 
-/* Benar */
-.option.correct {
-    border-color: #29c05a;
-    background: #e3ffe9;
-}
-.explanation {
-    margin-top: 1rem;
-    line-height: 1.6;
-}
+  /* container with subtle textured paper */
+  .controls{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    align-items:center;
+    margin-top:8px;
+  }
 
-.explanation .label {
-    font-weight: 600;
-    float: left;
-    margin-right: 6px;
-}
+  /* file box */
+  .file-box{
+    width:100%;
+    background: rgba(0,0,0,0.6);
+    border-radius:6px;
+    padding:26px 22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6), inset 0 1px 0 rgba(0,0,0,0.6);
+    /* border: 2px dashed rgba(0,0,0,0.12); */
+    cursor:pointer;
+    max-width:680px;
+    text-align:center;
+    color:#2b3b43;
+    font-weight:600;
+  }
 
-.explanation .value {
-    display: block;
-    margin-left: 85px; /* Sesuaikan panjang label “Jawaban:” */
-}
+  .file-box small{
+    display:block;
+    margin-top:6px;
+    font-weight:500;
+    color:#567;
+    font-size:13px;
+  }
 
-/* ruang kosong bawah jawaban */
-.explanation.space {
-    margin-bottom: 1.2rem;
-}
+    .file-box .icon, .file-box small{
+        color: var(--white-color); 
+    }
 
+  .audio-p{
+    color: var(--white-color);
+    margin-left:10px; 
+    display:inline-block;
+  }
 
-
-/* Tombol berikutnya */
-.next-btn {
-    margin-top: 20px;
-    background: #ff5a1f;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 10px;
+  /* record button */
+  .record-btn{
+    width:100%;
+    max-width:680px;
+    background: linear-gradient(180deg,#F3B6BB, #54A876);
+    border-radius:6px;
+    padding:14px 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.28);
     border: none;
-    cursor: pointer;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1rem;
-    transition: 0.2s;
+    font-weight:700;
+    color:#9b1a1a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    cursor:pointer;
+  }
+
+  .start-btn{
+    margin-top:6px;
+    background:linear-gradient(180deg,var(--blue), #3c7dff);
+    color:#fff;
+    border:none;
+    padding:8px 18px;
+    font-weight:700;
+    border-radius:20px;
+    box-shadow: 0 6px 14px rgba(47,97,255,0.28);
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+  }
+
+  .icon{
+    width:18px;height:18px; display:inline-block; vertical-align:middle;
+  }
+
+  @media(max-width:820px){
+    .card{ padding:28px 20px; }
+    .file-box, .record-btn { padding:18px 14px; }
+  }
+
+  .file-box::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    margin-top:-220px;
+    width:calc(var(--card-w) - 80px);
+    height:18px;
+    pointer-events:none;
+    filter:blur(6px);
+  }
+
+  .filename{
+    margin-top:8px;
+    font-size:13px;
+    color:#45666f;
+    opacity:0.95;
+  }
+
+  .spotlight{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-120px;
+    width:760px;
+    height:260px;
+    background: radial-gradient(closest-side, rgba(255,255,255,0.07), transparent 60%);
+    filter: blur(36px);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .file-box:focus, 
+  .record-btn:focus, 
+  .start-btn:focus { 
+    outline: 3px solid rgba(47,97,255,0.18); 
+    outline-offset:2px; 
 }
 
-.next-btn:hover {
-    background: #e65119;
-}
+  .svg-inline{ display:inline-block; vertical-align:middle; }
 
-
-
-
-/* Responsif untuk layar besar (hindari tumpang tindih) */
 @media (min-width: 1024px) {
   .chatbot {
-    right: calc(1rem + 4.5rem); /* geser sedikit lebih jauh ke kiri di layar besar */
+    right: calc(1rem + 4.5rem);
     bottom: 3rem;
   }
 }
 
-/* Responsif untuk layar kecil (mobile/tablet) */
 @media (max-width: 768px) {
   .chatbot {
-    right: calc(1rem + 2.8rem); /* sedikit lebih rapat di layar kecil */
+    right: calc(1rem + 2.8rem);
     bottom: 2.5rem;
   }
 }
 
-/* start project section media scrin */
 @media(max-width:1024px){
     .con{
         width: 90%;
@@ -561,8 +592,6 @@ img{
   }
 }
 
-/* breakpoint */
- /* for small devices */
 @media screen and (max-width: 480px) {
     .container {
         margin-inline: 1rem;
@@ -572,9 +601,7 @@ img{
         font-size: 2.5rem;
     }
 
-    /* .footer__content {
-        grid-template-columns: max-content;
-    } */
+
 }
 
  /* for medium devices */

@@ -13,6 +13,16 @@ use App\Http\Controllers\QuizController;
 
 
 
+Route::get('/pengguna/soal-quiz', [PenggunaController::class, 'soalQuiz'])->name('pengguna.soal.quiz');
+
+Route::get('/pengguna/quiz/data', [PenggunaController::class, 'getQuizData'])->name('pengguna.quiz.data');
+
+
+
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Public Routes (tidak perlu login)
@@ -20,7 +30,7 @@ use App\Http\Controllers\QuizController;
 */
 
 // Saat buka "/", langsung arahkan ke halaman about pengguna
-Route::get('/', [PenggunaController::class, 'index'])->name('pengguna.index');
+Route::get('/', [PenggunaController::class, 'test'])->name('pengguna.test');
 
 
 
@@ -32,9 +42,24 @@ Route::get('/quiz', [PenggunaController::class, 'quiz'])->name('pengguna.quiz');
 Route::get('/budaya', [PenggunaController::class, 'budaya'])->name('pengguna.budaya');
 Route::get('/test', [PenggunaController::class, 'test'])->name('pengguna.test');
 Route::get('/isiBudaya', [PenggunaController::class, 'isiBudaya'])->name('pengguna.isiBudaya');
-Route::get('/agendaBudaya', [PenggunaController::class, 'agendaBudaya'])->name('pengguna.agendaBudaya');
+Route::get('/agendaBudaya', [PenggunaController::class, 'agendaBudayaList'])
+    ->name('pengguna.agendaBudaya.list');
+Route::get('/agendaBudaya/{id}', [PenggunaController::class, 'agendaBudaya'])
+    ->name('pengguna.agendaBudaya.detail');
+Route::get('/audio', [PenggunaController::class, 'audio'])->name('pengguna.audio');
+
+
 Route::get('/chatBot', [PenggunaController::class, 'chatBot'])->name('pengguna.chatBot');
+Route::post('/ask-baileobot', [AdminController::class, 'askBaileobot'])->name('ask.baileobot');
 Route::get('/soalQuiz', [PenggunaController::class, 'soalQuiz'])->name('pengguna.soalQuiz');
+
+Route::get('/budaya/{id}', [BudayaController::class, 'show'])->name('pengguna.budaya.show');
+Route::get('/wisata/{id}', [BudayaController::class, 'wisata'])->name('pengguna.wisata');
+
+
+Route::get('/budaya/filter', [BudayaController::class, 'filter']);
+
+
 
 
 /*
@@ -59,11 +84,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 */
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/budaya', [BudayaController::class, 'index'])->name('admin.budaya');
     Route::post('/budaya', [BudayaController::class, 'store'])->name('admin.budaya.store');
+    Route::put('/budaya/{id}', [BudayaController::class, 'update'])->name('admin.budaya.update'); // 🔥 WAJIB
     Route::delete('/budaya/{id}', [BudayaController::class, 'destroy'])->name('admin.budaya.destroy');
 });
+
 
 /*
 |--------------------------------------------------------------------------

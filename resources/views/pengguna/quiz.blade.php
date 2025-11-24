@@ -30,7 +30,7 @@
 
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
-            <li><a href="{{ route('pengguna.index') }}" class="nav__link ">Home</a></li>
+            <li><a href="{{ route('pengguna.test') }}" class="nav__link ">Home</a></li>
             <li><a href="{{ route('pengguna.quiz') }}" class="nav__link active-link">Quiz</a></li>
             <li><a href="{{ route('pengguna.budaya') }}" class="nav__link ">Budaya</a></li>
             <li><a href="#Admin" class="nav__link ">Admin</a></li>
@@ -54,44 +54,48 @@
       </nav>
     </header>
 
-    <!-- HOME SECTION -->
-    <section class="home section" id="home">
-        <img src="assets/images/batik_pala.png" alt="image" class="home__bg">
-        {{-- <div class="home__blur"></div> --}}
+  <!-- HOME SECTION -->
+  <section class="home section" id="home">
+    <img src="assets/images/batik_pala.png" class="home__bg">
 
-        <div>
-            <section class="trans" id="trans">
-              <div class="trans__container">
-                  <div class="trans__box">
-                          <div class="trans__select">
-                              <i class="ri-global-line"></i>
-                              <select id="fromLang" class="select__trans"> 
-                                  <option value="id">Bahasa Indonesia </option>
-                                  <option value="ambon">Bahasa Ambon</option>
-                                  
-                              </select>
-                          </div>
-                      <textarea id="fromText" placeholder="Tulis teks di sini..."></textarea>
-                  </div>
+    <section class="trans" id="trans">
+      <div class="trans__container">
+        <div class="trans__box">
+            <div class="trans__select">
+              <i class="ri-global-line"></i>
+              <select id="fromLang" class="select__trans">
+                <option value="id">Bahasa Indonesia</option>
+                <option value="ambon">Bahasa Ambon</option>
+              </select>
+            </div>
 
-                  <div class="trans__swap">
-                      <i class="ri-arrow-left-right-line"></i>
-                  </div>
+            <!-- === Voice Input Button === -->
+            <i id="micBtn" class="ri-mic-fill voice-btn" title="Ucapkan"></i>
 
-                  <div class="trans__box">
-                      <div class="trans__select">
-                          <i class="ri-global-line"></i>
-                          <select id="toLang" class="select__trans">
-                              <option value="ambon">Bahasa Ambon</option>
-                              <option value="id">Bahasa Indonesia</option>
-                          </select>
-                      </div>
-                  <textarea id="toText" placeholder="Hasil terjemahan..." readonly></textarea>
-                  </div>
-              </div>
-          </section>
+            <textarea id="fromText" placeholder="Tulis teks di sini..."></textarea>
         </div>
+
+        <div class="trans__swap">
+          <i class="ri-arrow-left-right-line"></i>
+        </div>
+
+        <div class="trans__box">
+            <div class="trans__select">
+              <i class="ri-global-line"></i>
+              <select id="toLang" class="select__trans">
+                <option value="ambon">Bahasa Ambon</option>
+                <option value="id">Bahasa Indonesia</option>
+              </select>
+            </div>
+
+            <!-- === Voice Output Button === -->
+            <i id="speakBtn" class="ri-volume-up-fill voice-btn" title="Putar suara"></i>
+
+            <textarea id="toText" placeholder="Hasil terjemahan..." readonly></textarea>
+        </div>
+      </div>
     </section>
+  </section>
 
     <!-- SECTION QUIZ -->
     <section class="translate section" id="translate">
@@ -110,14 +114,13 @@
         </div>
     </section>
 
-    {{-- Footer --}}
     <footer>
+
       <svg class="footer-wave-design" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#F26B3A" fill-opacity="1"
           d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
         </path>
       </svg>
-      
 
       <div class="footer-container">
 
@@ -133,9 +136,9 @@
         <div class="footer-section links2">
           <h2>Quick Links</h2>
           <ul>
-            <li><a href="{{ route('pengguna.index') }}">Home</a></li>
-            <li><a href="#">Quiz</a></li>
-            <li><a href="#">Budaya</a></li>
+            <li><a href="{{ route('pengguna.test') }}">Home</a></li>
+            <li><a href="{{ route('pengguna.quiz') }}">Quiz</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Budaya</a></li>
           </ul>
         </div>
 
@@ -143,10 +146,10 @@
         <div class="footer-section resources">
           <h2>Resource</h2>
           <ul>
-            <li><a href="#">Tarian Tradisional</a></li>
-            <li><a href="#">Pakaian Tradisional</a></li>
-            <li><a href="#">Makanan Khas Maluku</a></li>
-            <li><a href="#">Musik Tradisional</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Tarian Tradisional</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Pakaian Tradisional</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Makanan Khas Maluku</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Musik Tradisional</a></li>
           </ul>
         </div>
 
@@ -154,9 +157,9 @@
         <div class="footer-section newsletter">
           <h2>Maps Maluku</h2>
 
-          <div class="map-mask" onclick="window.location='{{ route('pengguna.budaya') }}'">
+          <div class="map-mask" onclick="openMapModal()">
             <img src="assets/images/mapss2.png" alt="maps">
-          </div>
+        </div>
         </div>
 
       </div>
@@ -176,70 +179,87 @@
       </div>
 
     </footer>
-
    {{-- Scroll Up --}}
     <a href="" class="scrollup" id="scroll-up">
         <i class="ri-arrow-up-line"></i>
     </a>
 
-    <a href="#chatbot" target="_blank" class="chatbot">
-        <i class="ri-robot-2-fill"></i>
-    </a>
+ <a href="{{ route('pengguna.chatBot') }}" target="_blank" class="chatbot">
+    <i class="ri-robot-2-fill"></i>
+</a>
 
-    {{-- Scroll Reveal --}}
-    <script src="{{ asset('assets/js/scrollreveal.min.js') }}"></script>
 
-    {{-- Swiper JS --}}
-    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+    {{-- Script bawaan --}}
+  <script src="{{ asset('assets/js/scrollreveal.min.js') }}"></script>
+  <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/js/quiz.js') }}"></script>
 
-    <!-- Main JS -->
-    <script src="{{ asset('assets/js/quiz.js') }}"></script>
+  {{-- === LOGIKA TERJEMAHAN + VOICE FEATURE === --}}
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
 
-    {{-- === SIMULASI TERJEMAHAN OTOMATIS === --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const fromText = document.getElementById('fromText');
-        const toText = document.getElementById('toText');
-        const swapBtn = document.querySelector('.trans__swap');
-        const fromLang = document.getElementById('fromLang');
-        const toLang = document.getElementById('toLang');
-        const kamus = @json($bahasa); // ← ambil data kamus dari controller
+      const fromText = document.getElementById('fromText');
+      const toText = document.getElementById('toText');
+      const swapBtn = document.querySelector('.trans__swap');
+      const fromLang = document.getElementById('fromLang');
+      const toLang = document.getElementById('toLang');
+      const kamus = @json($bahasa);
 
-        // 🔹 Tombol Tukar Bahasa
-        if (swapBtn) {
-            swapBtn.addEventListener('click', () => {
-            const tempText = fromText.value;
-            const tempLang = fromLang.value;
-            fromText.value = toText.value;
-            toText.value = tempText;
-            fromLang.value = toLang.value;
-            toLang.value = tempLang;
-            });
+      /* ===================== TERJEMAHAN DINAMIS ===================== */
+      function translate() {
+        let input = fromText.value.toLowerCase();
+        let result = input;
+
+        if (fromLang.value === 'id' && toLang.value === 'ambon') {
+          kamus.forEach(item => result = result.replace(new RegExp(`\\b${item.indonesia}\\b`, 'gi'), item.ambon));
+        } else if (fromLang.value === 'ambon' && toLang.value === 'id') {
+          kamus.forEach(item => result = result.replace(new RegExp(`\\b${item.ambon}\\b`, 'gi'), item.indonesia));
         }
+        toText.value = result;
+      }
+      fromText.addEventListener('input', translate);
 
-        // 🔹 Terjemahan Otomatis Saat Mengetik
-        if (fromText) {
-            fromText.addEventListener('input', () => {
-            let inputText = fromText.value.toLowerCase();
-            let outputText = inputText;
+      swapBtn.addEventListener('click', () => {
+        [fromLang.value, toLang.value] = [toLang.value, fromLang.value];
+        [fromText.value, toText.value] = [toText.value, fromText.value];
+        translate();
+      });
 
-            if (fromLang.value === 'id' && toLang.value === 'ambon') {
-                kamus.forEach(item => {
-                const regex = new RegExp(`\\b${item.indonesia}\\b`, 'gi');
-                outputText = outputText.replace(regex, item.ambon);
-                });
-            } else if (fromLang.value === 'ambon' && toLang.value === 'id') {
-                kamus.forEach(item => {
-                const regex = new RegExp(`\\b${item.ambon}\\b`, 'gi');
-                outputText = outputText.replace(regex, item.indonesia);
-                });
-            }
+      /* ===================== 🌟 VOICE INPUT (Speech-to-Text) ===================== */
+      const micBtn = document.getElementById('micBtn');
+      const recognition = window.SpeechRecognition || window.webkitSpeechRecognition ?
+        new (window.SpeechRecognition || window.webkitSpeechRecognition)() : null;
 
-            toText.value = outputText;
-            });
-        }
+      if (recognition) {
+        recognition.lang = "id-ID";
+        recognition.continuous = false;
+
+        micBtn.addEventListener('click', () => {
+          micBtn.classList.add("voice-active");
+          recognition.start();
         });
-    </script>
+
+        recognition.onresult = e => {
+          fromText.value += (fromText.value ? " " : "") + e.results[0][0].transcript;
+          translate();
+        };
+
+        recognition.onend = () => micBtn.classList.remove("voice-active");
+      }
+
+      /* ===================== 🔊 TEXT-TO-SPEECH ===================== */
+      const speakBtn = document.getElementById('speakBtn');
+      speakBtn.addEventListener("click", () => {
+        let msg = new SpeechSynthesisUtterance(toText.value);
+        msg.lang = toLang.value === "id" ? "id-ID" : "id-ID"; // tetap Indonesia karena belum ada TTS Ambon
+        window.speechSynthesis.speak(msg);
+      });
+
+    });
+  </script>
+
+  {{-- Modal Maps--}}
+@include('components.maps')
 
 </body>
 </html>

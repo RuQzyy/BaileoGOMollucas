@@ -152,35 +152,6 @@ window.addEventListener('load', () => {
 });
 
 
-const modal = document.getElementById('myModal');
-const closeBtn = document.querySelector('.modal .close');
-const lihatBtns = document.querySelectorAll('.btn');
-
-lihatBtns.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const card = btn.closest('.project-img');
-    const title = card.querySelector('h4').innerText;
-    const imgSrc = card.querySelector('img').getAttribute('src');
-
-    modal.querySelector('.modal-title').innerText = title;
-    modal.querySelector('.modal-img').setAttribute('src', imgSrc);
-    modal.querySelector('.modal-description p').innerText =
-      'Deskripsi detail tentang ' + title + ' akan muncul di sini.';
-
-    modal.style.display = 'flex';
-  });
-});
-
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
-});
 
 // ========================
 // SEARCH FILTER GALLERY
@@ -195,17 +166,20 @@ if (searchInput) {
     const searchValue = e.target.value.toLowerCase().trim();
     const selectedCategoryText = dropdownSpan.innerText.toLowerCase().trim();
 
-    const categoryMap = {
-      'semua': 'semua',
-      'rumah adat': 'rumah',
-      'pakaian tradisional': 'pakaian',
-      'musik tradisional': 'musik',
-      'alat musik tradisional': 'alat',
-      'makan tradisional': 'makanan',
-      'sejarah': 'sejarah',
-      'cerita rakyat': 'cerita',
-      'tokoh': 'tokoh'
-    };
+   const categoryMap = {
+  'semua': 'semua',
+  'tarian tradisional' : 'tarian tradisional',
+  'rumah adat': 'rumah adat',
+  'pakaian tradisional': 'pakaian tradisional',
+  'musik tradisional': 'musik tradisional',
+  'alat musik tradisional': 'alat musik tradisional',
+  'makan tradisional': 'makan tradisional',
+  'sejarah': 'sejarah',
+  'cerita rakyat': 'cerita rakyat',
+  'tokoh': 'tokoh',
+  'wisata' : 'wisata'
+};
+
 
     const selectedCategory = categoryMap[selectedCategoryText] || 'semua';
     let found = false;
@@ -234,8 +208,6 @@ if (searchInput) {
 
 
 
-
-
 let dropdownBtn = document.getElementById("drop-text");
 let list = document.getElementById("list");
 let icon = document.getElementById("icon");
@@ -252,7 +224,7 @@ dropdownBtn.onclick = function(){
         icon.style.rotate = "-180deg";
     }
     list.classList.toggle("show");
-    
+
 }
 
 // hide dropdown list
@@ -278,28 +250,7 @@ for(item of listItems){
 }
 
 
-// var TrandingSlider = new Swiper('.tranding-slider', {
-//     effect: 'coverflow',
-//     grabCursor: true,
-//     centeredSlides: true,
-//     loop: true,
-//     slidesPerView: 'auto',
-//     coverflowEffect: {
-//         rotate: 0,
-//         stretch: 0,
-//         depth: 100,
-//         modifier: 2.5,
-//         slideShadows: false,
-//     },
-//     pagination: {
-//         el: '.swiper-pagination',
-//         clickable: true,
-//     },
-//     navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//     }
-// });
+
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 5,

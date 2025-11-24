@@ -16,5 +16,9 @@ class Budaya extends Model
         'kategori',
         'deskripsi',
         'gambar',
+        'lokasi',
+        'konteks',
+        'deskripsi_singkat',
+        'alasan',
     ];
 }
