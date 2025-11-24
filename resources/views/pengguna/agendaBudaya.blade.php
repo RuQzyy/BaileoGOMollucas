@@ -100,8 +100,8 @@
 
 <div class="coontainer">
 
-    @foreach ($otherEvents as $item)
-    <div class="carrd" onclick="window.location='{{ route('pengguna.agendaBudaya.list', $item->id) }}'">
+     @foreach ($otherEvents as $item)
+    <div class="carrd">
         <div class="imgBx">
             <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->judul }}">
         </div>
@@ -111,7 +111,7 @@
             <a href="{{ route('pengguna.agendaBudaya.detail', $item->id) }}">Read More</a>
         </div>
     </div>
-    @endforeach
+@endforeach
 
 </div>
 
