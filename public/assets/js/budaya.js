@@ -101,7 +101,7 @@ themeButton.addEventListener('click', () => {
     themeButton.classList.toggle(iconTheme)
 
     localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrent())
+    localStorage.setItem('selected-icon', getCurrentIcon())
 
 })
 
@@ -114,43 +114,46 @@ const sr= ScrollReveal({
     // reset: true,
 })
 
-let fiterItem = document.querySelector('.items-link');
-let fileteImage = document.querySelectorAll('.project-img');
+let filterItem = document.getElementById("list");              // container dropdown list
+let fileteImage = document.querySelectorAll(".project-img");   // semua kartu budaya
 
 window.addEventListener('load', () => {
-    // Menyembunyikan semua gambar yang tidak sesuai kategori aktif
-    let activeItem = document.querySelector('.item-link.menu-active');
+    // Tampilkan hanya kategori aktif jika ada
+    let activeItem = document.querySelector('.dropdown-list-item.menu-active');
     if (activeItem) {
-        let activeFilter = activeItem.getAttribute('data-name');
+        let activeFilter = activeItem.getAttribute('data-name').toLowerCase();
         fileteImage.forEach((image) => {
-            let imageFilter = image.getAttribute('data-name');
-            if (imageFilter === activeFilter) {
-                image.style.display = 'block';
-            } else {
-                image.style.display = 'none';
-            }
+            let imageFilter = image.getAttribute('data-name').toLowerCase();
+            image.style.display = (activeFilter === 'semua' || imageFilter === activeFilter)
+                                  ? 'block'
+                                  : 'none';
         });
     }
 
-    // Tambahkan juga event klik seperti sebelumnya
-    fiterItem.addEventListener('click', (selectedItem) => {
-        if (selectedItem.target.classList.contains('item-link')) {
-            document.querySelector('.menu-active').classList.remove('menu-active');
-            selectedItem.target.classList.add('menu-active');
+    // Event klik kategori dropdown
+    if (filterItem) {
+        filterItem.addEventListener('click', (selectedItem) => {
+            if (selectedItem.target.classList.contains('dropdown-list-item')) {
 
-            let filterName = selectedItem.target.getAttribute('data-name');
-            fileteImage.forEach((image) => {
-                let filterImage = image.getAttribute('data-name');
-                if (filterImage === filterName || filterName === 'all') {
-                    image.style.display = 'block';
-                } else {
-                    image.style.display = 'none';
-                }
-            });
-        }
-    });
+                document.querySelector('.menu-active')?.classList.remove('menu-active');
+                selectedItem.target.classList.add('menu-active');
+
+                let filterName = selectedItem.target.getAttribute('data-name').toLowerCase();
+
+                fileteImage.forEach((image) => {
+                    let filterImage = image.getAttribute('data-name').toLowerCase();
+                    image.style.display = (filterName === 'semua' || filterImage === filterName)
+                                          ? 'block'
+                                          : 'none';
+                });
+
+                // aktifkan lagi filter search supaya search + kategori sinkron
+                const searchEvent = new Event('keyup');
+                document.getElementById("search-input").dispatchEvent(searchEvent);
+            }
+        });
+    }
 });
-
 
 
 // ========================

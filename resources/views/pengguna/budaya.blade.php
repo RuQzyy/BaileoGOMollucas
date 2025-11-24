@@ -148,29 +148,7 @@
     <a href="#" id="lihatSemuaBtn">Lihat Semua →</a>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const lihatBtn = document.getElementById('lihatSemuaBtn');
 
-    lihatBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const swiperInstance = document.querySelector('.mySwiper').swiper;
-
-        if (!swiperInstance) return; // pengaman
-
-        const activeIndex = swiperInstance.activeIndex;
-        const activeSlide = swiperInstance.slides[activeIndex];
-
-        const onclickAttr = activeSlide.getAttribute('onclick');
-
-        if (!onclickAttr) return; // pengaman
-
-        const url = onclickAttr.match(/'(.*?)'/)[1];
-        window.location.href = url;
-    });
-});
-</script>
 
 
 
@@ -214,8 +192,8 @@ document.addEventListener("DOMContentLoaded", function () {
             {{-- filter --}}
             <div class="budaya">
 
-             @foreach ($budaya as $b)
-<div class="project-img">
+     @foreach ($budaya as $b)
+<div class="project-img" data-name="{{ strtolower($b->kategori) }}">
     <img src="{{ asset('storage/' . $b->gambar) }}" alt="{{ $b->nama }}">
     <div class="overlay">
         <h4>{{ $b->nama }}</h4>
@@ -225,7 +203,6 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 </div>
 @endforeach
-
 
 
 
@@ -328,6 +305,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     {{-- Modal Maps --}}
     @include('components.maps')
+
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const lihatBtn = document.getElementById('lihatSemuaBtn');
+
+    lihatBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const swiperInstance = document.querySelector('.mySwiper').swiper;
+
+        if (!swiperInstance) return; // pengaman
+
+        const activeIndex = swiperInstance.activeIndex;
+        const activeSlide = swiperInstance.slides[activeIndex];
+
+        const onclickAttr = activeSlide.getAttribute('onclick');
+
+        if (!onclickAttr) return; // pengaman
+
+        const url = onclickAttr.match(/'(.*?)'/)[1];
+        window.location.href = url;
+    });
+});
+</script>
 
 
 </body>
