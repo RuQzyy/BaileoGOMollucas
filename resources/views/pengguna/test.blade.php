@@ -312,7 +312,17 @@
             <span class="category">{{ $story->judul }}</span>
             <h4>{{ $story->sub_judul }}</h4>
 
-            <p>{{ \Carbon\Carbon::parse($story->tanggal)->format('M d, Y') }}</p>
+           <p>
+    <i class="ri-calendar-2-line"></i>
+
+    @php
+        $start = \Carbon\Carbon::parse($story->tanggal)->format('d M Y');
+        $end = \Carbon\Carbon::parse($story->tanggal_berakhir)->format('d M Y');
+    @endphp
+
+    {{ $start === $end ? $start : "$start — $end" }}
+</p>
+
           </div>
         </a>
 
