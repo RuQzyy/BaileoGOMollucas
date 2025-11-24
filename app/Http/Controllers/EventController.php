@@ -20,9 +20,11 @@ class EventController extends Controller
     {
         $request->validate([
             'judul' => 'required|string|max:255',
+            'sub_judul' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
-            'deskripsi_singkat' => 'nullable|string|max:255', // ✅ tambahkan validasi baru
-            'tanggal' => 'required|date',
+            'deskripsi_singkat' => 'nullable|string|max:255',
+            'tanggal' => 'required|date', // tanggal mulai
+            'tanggal_berakhir' => 'nullable|date|after_or_equal:tanggal',
             'lokasi' => 'required|string|max:255',
             'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
@@ -34,9 +36,11 @@ class EventController extends Controller
 
         Event::create([
             'judul' => $request->judul,
+            'sub_judul' => $request->sub_judul,
             'deskripsi' => $request->deskripsi,
-            'deskripsi_singkat' => $request->deskripsi_singkat, // ✅ simpan ke DB
-            'tanggal' => $request->tanggal,
+            'deskripsi_singkat' => $request->deskripsi_singkat,
+            'tanggal' => $request->tanggal,              // mulai
+            'tanggal_berakhir' => $request->tanggal_berakhir,  // boleh null
             'lokasi' => $request->lokasi,
             'gambar' => $gambarPath,
         ]);
@@ -51,14 +55,16 @@ class EventController extends Controller
 
         $request->validate([
             'judul' => 'required|string|max:255',
+            'sub_judul' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
-            'deskripsi_singkat' => 'nullable|string|max:255', // ✅ validasi tambahan
+            'deskripsi_singkat' => 'nullable|string|max:255',
             'tanggal' => 'required|date',
+            'tanggal_berakhir' => 'nullable|date|after_or_equal:tanggal',
             'lokasi' => 'required|string|max:255',
             'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // Jika ada gambar baru, hapus yang lama
+        // Jika ada gambar baru → hapus yang lama
         if ($request->hasFile('gambar')) {
             if ($event->gambar) {
                 Storage::disk('public')->delete($event->gambar);
@@ -68,9 +74,11 @@ class EventController extends Controller
 
         $event->update([
             'judul' => $request->judul,
+            'sub_judul' => $request->sub_judul,
             'deskripsi' => $request->deskripsi,
-            'deskripsi_singkat' => $request->deskripsi_singkat, // ✅ update field baru
+            'deskripsi_singkat' => $request->deskripsi_singkat,
             'tanggal' => $request->tanggal,
+            'tanggal_berakhir' => $request->tanggal_berakhir,
             'lokasi' => $request->lokasi,
             'gambar' => $event->gambar,
         ]);
@@ -82,9 +90,11 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::findOrFail($id);
+
         if ($event->gambar) {
             Storage::disk('public')->delete($event->gambar);
         }
+
         $event->delete();
 
         return redirect()->back()->with('success', 'Event berhasil dihapus!');

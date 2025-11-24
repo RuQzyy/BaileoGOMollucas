@@ -117,7 +117,7 @@ img{
     --opacity-color-20: hsla(0, 0%, 15%, .2);
 }
 
-/* 
+/*
     color changes in some parts of the website, indark theme
 */
 .dark-theme .bg-header .nav__logo img{
@@ -139,8 +139,8 @@ img{
 }
 
 .dark-theme .search-box input {
-  background-color: transparent; 
-  border: none;                  
+  background-color: transparent;
+  border: none;
   color: #f5f5f5;
 }
 
@@ -407,17 +407,17 @@ img{
 
 /* Styling bubble */
 .bubble {
-    max-width: 70%;     
-    padding: 12px 18px;   
+    max-width: 70%;
+    padding: 12px 18px;
     border-radius: 0 100px 100px 150px;
-    height: auto;           
+    height: auto;
     display: inline-block;
 }
 .bubble-right {
-    max-width: 70%;        
-    padding: 12px 18px;  
+    max-width: 70%;
+    padding: 12px 18px;
     border-radius: 100px 0 150px 100px;
-    height: auto;           
+    height: auto;
     display: inline-block;
 }
 

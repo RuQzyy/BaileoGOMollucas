@@ -40,8 +40,10 @@
         <th class="px-4 py-2 rounded-tl-lg">No</th>
         <th class="px-4 py-2">Gambar</th>
         <th class="px-4 py-2">Judul</th>
+        <th class="px-4 py-2">Sub Judul</th>
         <th class="px-4 py-2">Deskripsi Singkat</th>
-        <th class="px-4 py-2">Tanggal</th>
+        <th class="px-4 py-2">Tanggal Mulai</th>
+        <th class="px-4 py-2">Tanggal Berakhir</th>
         <th class="px-4 py-2">Lokasi</th>
         <th class="px-4 py-2 text-center rounded-tr-lg">Aksi</th>
       </tr>
@@ -50,6 +52,7 @@
       @forelse ($events as $index => $event)
       <tr class="border-b hover:bg-blue-50 transition">
         <td class="px-4 py-3">{{ $index + 1 }}</td>
+
         <td class="px-4 py-3">
           @if ($event->gambar)
             <img src="{{ asset('storage/' . $event->gambar) }}" class="w-16 h-16 object-cover rounded-lg border">
@@ -59,28 +62,41 @@
             </div>
           @endif
         </td>
+
         <td class="px-4 py-3 font-medium text-gray-800">{{ $event->judul }}</td>
+        <td class="px-4 py-3 font-medium text-gray-800">{{ $event->sub_judul }}</td>
         <td class="px-4 py-3 text-gray-600">{{ $event->deskripsi_singkat }}</td>
+
         <td class="px-4 py-3">{{ $event->tanggal }}</td>
+
+        <td class="px-4 py-3">
+          @if ($event->tanggal_berakhir)
+            {{ $event->tanggal_berakhir }}
+          @else
+            <span class="text-gray-400 italic">Satu Hari</span>
+          @endif
+        </td>
+
         <td class="px-4 py-3">{{ $event->lokasi }}</td>
+
         <td class="px-4 py-3 text-center">
-          <!-- Tombol Edit -->
           <button
             class="text-blue-600 hover:text-blue-800 mx-1 editEventBtn"
             data-id="{{ $event->id }}"
             data-judul="{{ $event->judul }}"
+            data-sub_judul="{{ $event->sub_judul }}"
             data-deskripsi="{{ $event->deskripsi }}"
             data-deskripsi-singkat="{{ $event->deskripsi_singkat }}"
             data-tanggal="{{ $event->tanggal }}"
+            data-tanggal-berakhir="{{ $event->tanggal_berakhir }}"
             data-lokasi="{{ $event->lokasi }}">
             <i data-lucide="edit" class="w-4 h-4"></i>
           </button>
 
-          <!-- Tombol Hapus -->
           <form action="{{ route('admin.event.destroy', $event->id) }}" method="POST" class="inline">
             @csrf
             @method('DELETE')
-            <button onclick="return confirm('Yakin ingin menghapus event ini?')" class="text-red-600 hover:text-red-800 mx-1" title="Hapus">
+            <button onclick="return confirm('Yakin ingin menghapus event ini?')" class="text-red-600 hover:text-red-800 mx-1">
               <i data-lucide="trash" class="w-4 h-4"></i>
             </button>
           </form>
@@ -88,7 +104,7 @@
       </tr>
       @empty
       <tr>
-        <td colspan="7" class="text-center py-4 text-gray-500">Belum ada event terdaftar.</td>
+        <td colspan="9" class="text-center py-4 text-gray-500">Belum ada event terdaftar.</td>
       </tr>
       @endforelse
     </tbody>
@@ -97,7 +113,7 @@
 
 <!-- 🧩 Modal Tambah/Edit Event -->
 <div id="eventModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-  <div class="bg-white w-full max-w-lg rounded-xl shadow-lg p-6 relative">
+  <div class="bg-white max-h-[90vh] overflow-y-auto w-full max-w-lg rounded-xl shadow-lg p-6 relative">
     <button id="closeEventModal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
       <i data-lucide="x" class="w-5 h-5"></i>
     </button>
@@ -106,7 +122,6 @@
 
     <form id="eventForm" action="{{ route('admin.event.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
       @csrf
-      <input type="hidden" id="event_id">
       <div id="methodField"></div>
 
       <div>
@@ -115,18 +130,28 @@
       </div>
 
       <div>
+        <label class="block text-sm font-medium text-gray-700">Sub Judul</label>
+        <input type="text" name="sub_judul" id="sub_judul" class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2">
+      </div>
+
+      <div>
         <label class="block text-sm font-medium text-gray-700">Deskripsi Singkat</label>
-        <input type="text" name="deskripsi_singkat" id="deskripsi_singkat" maxlength="255" class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2" placeholder="Ringkasan singkat tentang event...">
+        <input type="text" name="deskripsi_singkat" id="deskripsi_singkat" maxlength="255" class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2">
       </div>
 
       <div>
         <label class="block text-sm font-medium text-gray-700">Deskripsi Lengkap</label>
-        <textarea name="deskripsi" id="deskripsi" rows="4" class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2" placeholder="Deskripsi detail event..."></textarea>
+        <textarea name="deskripsi" id="deskripsi" rows="4" class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2"></textarea>
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-gray-700">Tanggal</label>
+        <label class="block text-sm font-medium text-gray-700">Tanggal Mulai</label>
         <input type="date" name="tanggal" id="tanggal" class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Tanggal Berakhir (Opsional)</label>
+        <input type="date" name="tanggal_berakhir" id="tanggal_berakhir" class="w-full mt-1 border border-gray-300 rounded-lg px-3 py-2">
       </div>
 
       <div>
@@ -158,7 +183,6 @@
   const eventModalTitle = document.getElementById('eventModalTitle');
   const methodField = document.getElementById('methodField');
 
-  // 🟢 Buka modal tambah
   addEventBtn.addEventListener('click', () => {
     eventModalTitle.textContent = 'Tambah Event';
     eventForm.action = "{{ route('admin.event.store') }}";
@@ -167,33 +191,26 @@
     eventModal.classList.remove('hidden');
   });
 
-  // 🔵 Buka modal edit
-  document.querySelectorAll('.editEventBtn').forEach(button => {
-    button.addEventListener('click', () => {
-      const id = button.dataset.id;
-      const judul = button.dataset.judul;
-      const deskripsi = button.dataset.deskripsi;
-      const deskripsiSingkat = button.dataset.deskripsiSingkat;
-      const tanggal = button.dataset.tanggal;
-      const lokasi = button.dataset.lokasi;
-
+  document.querySelectorAll('.editEventBtn').forEach(btn => {
+    btn.addEventListener('click', () => {
       eventModalTitle.textContent = 'Edit Event';
-      eventForm.action = `/admin/event/${id}`;
+      eventForm.action = "/admin/event/" + btn.dataset.id;
       methodField.innerHTML = '@method("PUT")';
 
-      document.getElementById('judul').value = judul;
-      document.getElementById('deskripsi').value = deskripsi;
-      document.getElementById('deskripsi_singkat').value = deskripsiSingkat;
-      document.getElementById('tanggal').value = tanggal;
-      document.getElementById('lokasi').value = lokasi;
+      document.getElementById('judul').value = btn.dataset.judul;
+      document.getElementById('sub_judul').value = btn.dataset.sub_judul;
+      document.getElementById('deskripsi').value = btn.dataset.deskripsi;
+      document.getElementById('deskripsi_singkat').value = btn.dataset.deskripsiSingkat;
+      document.getElementById('tanggal').value = btn.dataset.tanggal;
+      document.getElementById('tanggal_berakhir').value = btn.dataset.tanggalBerakhir ?? '';
+      document.getElementById('lokasi').value = btn.dataset.lokasi;
 
       eventModal.classList.remove('hidden');
     });
   });
 
-  // Tutup modal
-  [closeEventModal, cancelEventBtn].forEach(btn => {
-    btn.addEventListener('click', () => eventModal.classList.add('hidden'));
-  });
+  [closeEventModal, cancelEventBtn].forEach(el =>
+    el.addEventListener('click', () => eventModal.classList.add('hidden'))
+  );
 </script>
 @endsection

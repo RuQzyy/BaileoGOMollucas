@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://db.onlinewebfonts.com/c/89d11a443c316da80dcb8f5e1f63c86e?family=Bauhaus+93+V2" rel="stylesheet" type="text/css"/>
-   
+
     {{-- Favicon --}}
     <link rel="stylesheet" href="">
 
@@ -17,9 +17,9 @@
 
      <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/test.css') }}">
-    
+
     <title>Baileo Go Mollucas</title>
-</head> 
+</head>
 <body>
   {{-- Header --}}
     <header class="header" id="header">
@@ -41,7 +41,7 @@
               <i class="ri-close-large-line"></i>
           </div>
         </div>
-  
+
         <div class="nav__buttons">
             <!-- theme button -->
             <i class="ri-moon-fill nav__theme" id="theme-button"></i>
@@ -60,114 +60,45 @@
     <div class="carousel">
       {{-- list item --}}
       <div class="list">
-        <div class="item">
-          <img src="assets/images/bambu.jpg" alt="">
-          <div class="content">
+    @foreach ($budayaCarousel as $item)
+    <div class="item">
+        <img src="{{ asset('storage/' . $item->gambar) }}" alt="">
+        <div class="content">
             <div class="author">BUDAYA MALUKU</div>
-            <div class="title">BAMBU</div>
-            <div class="topic">GILA</div>
-            {{-- <div class="des">
-              “Bambu Gila adalah tradisi khas Maluku yang dibawakan melalui ritual pawang, membuat sebatang bambu bergerak liar seolah memiliki kekuatan tak terlihat. Warisan budaya kuno ini menjadi simbol kuat hubungan masyarakat Maluku dengan alam dan leluhur.”
-            </div> --}}
+            <div class="title">{{ $item->kategori }}</div>
+            <div class="topic">{{ $item->nama }}</div>
+
             <div class="buttons">
-              <button>SEE MORE</button>
-              {{-- <button>SUBSCRIBE</button> --}}
-            </div>
-          </div>
+    <a href="{{ route('pengguna.budaya.show', $item->id) }}">
+        <button type="button">SEE MORE</button>
+    </a>
+</div>
+
         </div>
+    </div>
+@endforeach
+
+</div>
+<div class="thumbnail">
+    @foreach ($budayaThumbnail as $b)
+    <a href="{{ route('pengguna.budaya.show', $b->id) }}" class="thumbnail-link" style="text-decoration:none; color:inherit;">
         <div class="item">
-          <img src="assets/images/hd_orlapei.jpg" alt="">
-          <div class="content">
-            <div class="author">BUDAYA MALUKU</div>
-            <div class="title">TARI</div>
-            <div class="topic">ORLAPEI</div>
-            {{-- <div class="des">
-              “Tarian Orlapei adalah tarian penyambutan khas Maluku yang mengekspresikan sukacita dan rasa hormat kepada tamu kehormatan. Dibawakan oleh muda-mudi secara berpasangan, tarian ini diiringi musik tradisional seperti tifa, suling bambu, ukulele, dan gitar. Orlapei juga mencerminkan nilai keterbukaan dan kehangatan masyarakat Maluku dalam menerima tamu.”
-            </div> --}}
-            <div class="buttons">
-              <button>SEE MORE</button>
-              {{-- <button>SUBSCRIBE</button> --}}
+            <img src="{{ asset('storage/' . $b->gambar) }}" alt="">
+            <div class="content">
+                <div class="title">
+                    {{ $b->nama }}
+                </div>
+                <div class="des">
+                    <i class="ri-map-pin-2-fill">{{ $b->lokasi ?? 'Maluku' }}</i>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="item">
-          <img src="assets/images/hd_cakalele0.jpeg" alt="">
-          <div class="content">
-            <div class="author">BUDAYA MALUKU</div>
-            <div class="title">TARI</div>
-            <div class="topic">CAKALELE</div>
-            {{-- <div class="des">
-              “Tarian Cakalele adalah tarian tradisional Maluku yang melambangkan keberanian dan semangat perjuangan. Ditampilkan dalam upacara adat dan perayaan penting, tarian ini berakar dari makna ‘roh yang mengamuk’ sebagai simbol kekuatan dan warisan leluhur.”
-            </div> --}}
-            <div class="buttons">
-              <button>SEE MORE</button>
-              {{-- <button>SUBSCRIBE</button> --}}
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="assets/images/lenso2.jpg" alt="">
-          <div class="content">
-            <div class="author">BUDAYA MALUKU</div>
-            <div class="title">TARI</div>
-            <div class="topic">LENSO</div>
-            {{-- <div class="des">
-              “Tarian Lenso adalah tarian tradisional Maluku yang menggunakan sapu tangan sebagai ciri khas. Tarian ini tampil dalam berbagai acara adat dan perayaan, mencerminkan keceriaan serta akulturasi budaya yang kaya di Maluku.”
-            </div> --}}
-            <div class="buttons">
-              <button>SEE MORE</button>
-              {{-- <button>SUBSCRIBE</button> --}}
-            </div>
-          </div>
-        </div>
-      </div>
-      {{-- thumbnail --}}
-      <div class="thumbnail">
-        <div class="item">
-          <img src="assets/images/bambu.jpg" alt="">
-          <div class="content">
-            <div class="title">
-              Bambu Gila
-            </div>
-            <div class="des">
-              <i class="ri-map-pin-2-fill">Ternate, Maluku</i>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="assets/images/hd_orlapei.jpg" alt="">
-          <div class="content">
-            <div class="title">
-              Orlapei
-            </div>
-            <div class="des">
-              <i class="ri-map-pin-2-fill">Maluku</i>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="assets/images/hd_cakalele0.jpeg" alt="">
-          <div class="content">
-            <div class="title">
-              Tari Cakalele
-            </div>
-            <div class="des">
-              <i class="ri-map-pin-2-fill">Maluku</i>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="assets/images/lenso2.jpg" alt="">
-          <div class="content">
-            <div class="title">
-              Tari Lenso
-            </div>
-            <div class="des">
-              <i class="ri-map-pin-2-fill">Maluku</i>
-            </div>
-          </div>
-        </div>
-      </div>
+    </a>
+    @endforeach
+</div>
+
+
+
       {{-- arrows --}}
       <div class="arrows">
         <button id="prev"><</button>
@@ -176,22 +107,6 @@
       <div class="time"></div>
     </div>
 
-
-
-    {{-- clip path --}}
-    {{-- <div class="container2">
-      <div class="card">
-        <div class="cardimg">
-          <img src="assets/images/lenso2.jpg" alt="image">
-        </div>
-        
-        <div class="tag">
-          <p><span>Tari Lenso</span></p>
-        </div>
-        <div class="curve_one"></div>
-        <div class="curve_two"></div>
-      </div>
-    </div> --}}
     <div class="layout-wrapper">
 
       <!-- LEFT 25% -->
@@ -200,45 +115,22 @@
         <p>Kenali lebih dekat kekayaan tradisi dan tarian dari bumi para raja.</p>
       </div>
 
-      <!-- RIGHT 75% -->
-      <div class="right-gallery">
-        <div class="gallery">
-  
-          <a href="/tari-lenso" class="gcard">
-            <img src="assets/images/lenso2.jpg">
-            <div class="ginfo">
-              <h3>Tari Lenso</h3>
-              <p>Tarian khas dari Maluku.</p>
-            </div>
-          </a>
+     <!-- RIGHT 75% -->
+<div class="right-gallery">
+  <div class="gallery">
 
-          <a href="/cakalele" class="gcard">
-            <img src="assets/images/kei_island.jpg">
-            <div class="ginfo">
-              <h3>Wisata</h3>
-              <p>Pulau Kei</p>
-            </div>
-          </a>
-
-          <a href="/saureka-reka" class="gcard">
-            <img src="assets/images/papeda.jpg">
-            <div class="ginfo">
-              <h3>Makanan Khas</h3>
-              <p>Papeda</p>
-            </div>
-          </a>
-
-          <a href="/katreji" class="gcard">
-            <img src="assets/images/ilustrasi-kapitan-pattimura.jpeg">
-            <div class="ginfo">
-              <h3>Pahlawan</h3>
-              <p>Kapitan Pattimura</p>
-            </div>
-          </a>
-
+    @foreach ($randomBudaya as $item)
+      <a href="{{ route('pengguna.budaya.show', $item->id) }}" class="gcard">
+        <img src="{{ asset('storage/' . $item->gambar) }}">
+        <div class="ginfo">
+          <h3>{{ $item->nama }}</h3>
+          <p>{{ $item->lokasi }}</p>
         </div>
+      </a>
+    @endforeach
 
-      </div>
+  </div>
+</div>
 
     </div>
 
@@ -275,7 +167,7 @@
 
             <!-- VERTICAL ICONS -->
             <div class="icons">
-              <a href="{{ route('pengguna.index') }}" class="icon2">
+              <a href="{{ route('pengguna.test') }}" class="icon2">
                   <i class="ri-treasure-map-fill"></i>
               </a>
 
@@ -336,7 +228,7 @@
               <i class="ri-translate"></i>
               <h3>Translate Bahasa</h3>
               <p>Belajar bahasa Ambon dengan menggunakan translate bahasa</p>
-              <a href="#">Belajar</a>
+              <a href="{{ route('pengguna.quiz') }}">Belajar</a>
             </div>
           </div>
           <div class="cardd">
@@ -344,7 +236,7 @@
               <i class="ri-question-mark"></i>
               <h3>Quiz</h3>
               <p>Uji pengetahuanmu dengan mengikut quiz buaday maluku</p>
-              <a href="#">Muali Quiz</a>
+              <a href="{{ route('pengguna.soalQuiz') }}">Muali Quiz</a>
             </div>
           </div>
           <div class="cardd">
@@ -352,77 +244,85 @@
               <i class="ri-book-open-fill"></i>
               <h3>Belajar Budaya Maluku</h3>
               <p>Pelajari lebih jauh mengenai budaya maluku</p>
-              <a href="#">Belajar</a>
+              <a href="{{ route('pengguna.budaya') }}">Belajar</a>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    {{-- acara adat --}}
-    <section class="latest-stories">
-      <div class="header-row">
-        <h2>Kegiatan Budaya</h2>
+ {{-- acara adat --}}
+<section class="latest-stories">
+  <div class="header-row">
+    <h2>Kegiatan Budaya</h2>
+
+    <a href="{{ route('pengguna.agendaBudaya.list') }}">
         <button class="btn-awesome">View More</button>
-      </div>
+    </a>
+  </div>
 
-      <div class="stories-grid">
+  <div class="stories-grid">
 
-        <!-- LEFT BIG STORY -->
-        <div class="big-story">
-          <img src="assets/images/hd_orlapei.jpg" alt="big story">
-          <div class="big-story-text">
-            <span class="category">Judul</span>
-            <h3>Sub judul</h3>
-            <div class="story-info-row">
-              <p class="story-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nulla aperiam quos, explicabo exercitationem repudiandae pariatur molestiae minus hic! Quis cumque aliquam nemo dolores sint quibusdam quos beatae illo? Ducimus.
-              </p>
+    <!-- LEFT BIG STORY -->
+    @if ($bigStory)
+    <a href="{{ route('pengguna.agendaBudaya.detail', $bigStory->id) }}" class="big-story story-link">
+        <img src="{{ asset('storage/'.$bigStory->gambar) }}" alt="big story">
 
-              <div class="story-meta">
-                <span class="meta-cal"><i class="ri-calendar-2-line"></i> 30 Jan - 02 Feb</span>
-                <span class="meta-time"><i class="ri-time-fill"></i> 18.30</span>
-                <span class="meta-place"><i class="ri-map-pin-fill"></i>Ambon</span>
-              </div>
+        <div class="big-story-text">
+          <span class="category">{{ $bigStory->sub_judul }}</span>
+
+          <h3>{{ $bigStory->judul }}</h3>
+
+          <div class="story-info-row">
+            <p class="story-desc">{{ $bigStory->deskripsi_singkat }}</p>
+
+            <div class="story-meta">
+              <span class="meta-cal">
+                <i class="ri-calendar-2-line"></i>
+                {{ \Carbon\Carbon::parse($bigStory->tanggal)->format('d M') }}
+                -
+                @if ($bigStory->tanggal_berakhir)
+                  {{ \Carbon\Carbon::parse($bigStory->tanggal_berakhir)->format('d M') }}
+                @else
+                  {{ \Carbon\Carbon::parse($bigStory->tanggal)->format('d M') }}
+                @endif
+              </span>
+
+              <span class="meta-place">
+                <i class="ri-map-pin-fill"></i>
+                {{ $bigStory->lokasi }}
+              </span>
             </div>
           </div>
         </div>
+    </a>
+    @else
+      <p>Tidak ada event mendatang.</p>
+    @endif
 
-        <!-- RIGHT SMALL STORIES -->
-        <div class="small-stories">
 
-          <div class="small-story">
-            <img src="assets/images/hd_orlapei.jpg" alt="">
-            <div>
-              <span class="category">Tari Cakalele</span>
-              <h4>12 South London Markets You’ll Love</h4>
-              <p>Aug 3, 2024 </p>
-            </div>
+    <!-- RIGHT SMALL STORIES -->
+    <div class="small-stories">
+      @forelse($smallStories as $story)
+
+        <a href="{{ route('pengguna.agendaBudaya.detail', $story->id) }}" class="small-story story-link">
+          <img src="{{ asset('storage/'.$story->gambar) }}" alt="">
+
+          <div>
+            <span class="category">{{ $story->judul }}</span>
+            <h4>{{ $story->sub_judul }}</h4>
+
+            <p>{{ \Carbon\Carbon::parse($story->tanggal)->format('M d, Y') }}</p>
           </div>
+        </a>
 
-          <div class="small-story">
-            <img src="assets/images/hd_orlapei.jpg" alt="">
-            <div>
-              <span class="category">Makan Patita</span>
-              <h4>10 incredible hotels around the world you can book with points in 2024</h4>
-              <p>Aug 6, 2024 </p>
-            </div>
-          </div>
+      @empty
+        <p class="text-gray-500">Belum ada event yang selesai.</p>
+      @endforelse
+    </div>
 
-          <div class="small-story">
-            <img src="assets/images/hd_orlapei.jpg" alt="">
-            <div>
-              <span class="category">Hari Budaya</span>
-              <h4>Visiting Chicago on a Budget: affordable eats and attractions</h4>
-              <p>Aug 14, 2024 </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
+  </div>
+</section>
 
 
 
@@ -467,7 +367,7 @@
             Semua dirancang agar kamu bisa belajar dengan mudah, menyenangkan, dan penuh wawasan!
           </p>
 
-          <a href="#" class="right-btn">Read More...</a>
+          <a href="{{ route('pengguna.budaya') }}" class="right-btn">Read More...</a>
         </div>
 
       </div>
@@ -476,97 +376,31 @@
     {{-- slider card akhir --}}
     <section class="carousel2">
       {{-- carousel cards 1 --}}
-      <div class="carousel__content">
+    <div class="carousel__content">
+    @foreach ($randomSlider->take(6) as $item)
         <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/papeda.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Papeda</h3>
-          <p>Papeda adalah makanan khas Maluku yang terbuat dari tepung sagu</p>
+            <div class="carousel__image">
+                <img src="{{ asset('storage/' . $item->gambar) }}" class="carousel__img">
+            </div>
+            <h3 class="carousel__name">{{ $item->nama }}</h3>
+            <p>{{ $item->kategori }}</p>
         </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/lenso2.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Tari Lenso</h3>
-          <p>Tari Lenso adalah tarian tradisional dari maluku yang menggunakan lenso untuk menari</p>
-        </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/pala.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Pala</h3>
-          <p>pala adalah salah satu rempah yang sangat khas dengan maluku</p>
-        </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/wisata.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Pantai Ora</h3>
-          <p>Pantai Ora terletak di Ora, salah satu tempat yang wajib dikunjungi jika berada di Maluku</p>
-        </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/ilustrasi-kapitan-pattimura.jpeg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Kapitan Pattimura</h3>
-          <p>Kapitan Pattimura adalah salah satu pahlawan kemerdekaan yang berasal dari maluku</p>
-        </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/tanya.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Tahukah Kamu?</h3>
-          <p>Tahukah kamu bahwa Aster adalah tempat di ambon</p>
-        </article>
-      </div>
+    @endforeach
+</div>
 
-      {{-- carousel cards 2 --}}
-      <div class="carousel__content carousel__reverse">
+<div class="carousel__content carousel__reverse">
+    @foreach ($randomSlider->slice(6, 6) as $item)
         <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/papeda.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Papeda</h3>
-          <p>Papeda adalah makanan khas Maluku yang terbuat dari tepung sagu</p>
+            <div class="carousel__image">
+                <img src="{{ asset('storage/' . $item->gambar) }}" class="carousel__img">
+            </div>
+            <h3 class="carousel__name">{{ $item->nama }}</h3>
+            <p>{{ $item->kategori }}</p>
         </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/lenso2.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Tari Lenso</h3>
-          <p>Tari Lenso adalah tarian tradisional dari maluku yang menggunakan lenso untuk menari</p>
-        </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/pala.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Pala</h3>
-          <p>pala adalah salah satu rempah yang sangat khas dengan maluku</p>
-        </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/wisata.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Pantai Ora</h3>
-          <p>Pantai Ora terletak di Ora, salah satu tempat yang wajib dikunjungi jika berada di Maluku</p>
-        </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/ilustrasi-kapitan-pattimura.jpeg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Kapitan Pattimura</h3>
-          <p>Kapitan Pattimura adalah salah satu pahlawan kemerdekaan yang berasal dari maluku</p>
-        </article>
-        <article class="carousel__card">
-          <div class="carousel__image">
-            <img src="assets/images/tanya.jpg" alt="image" class="carousel__img">
-          </div>
-          <h3 class="carousel__name">Tahukah Kamu?</h3>
-          <p>Tahukah kamu bahwa Aster adalah tempat di ambon</p>
-        </article>
+    @endforeach
+</div>
 
-      </div>
+
     </section>
 
     {{-- mask akhir --}}
@@ -704,7 +538,7 @@
         </div>
        </div>
     </section> --}}
-    
+
     {{-- <section class="slider-container">
       <div class="slider-images">
         <div class="slider-img">
@@ -712,7 +546,7 @@
           <h1>Sultan Baabullah</h1>
           <div class="details">
             <h2>Sultan Baabullah</h2>
-            <p><p>yuyun</p></p>  
+            <p><p>yuyun</p></p>
           </div>
         </div>
         <div class="slider-img">
@@ -720,7 +554,7 @@
           <h1>AIP. TK. II Brig.Pol. KS Tubun</h1>
           <div class="details">
             <h2>AIP. TK. II Brig.Pol. KS Tubun</h2>
-            <p>yuyun</p>  
+            <p>yuyun</p>
           </div>
         </div>
         <div class="slider-img">
@@ -728,7 +562,7 @@
           <h1>Martha Christina Tijahahu</h1>
           <div class="details">
             <h2>Martha Christina Tijahahu</h2>
-            <p>yuyun</p>  
+            <p>yuyun</p>
           </div>
         </div>
         <div class="slider-img active">
@@ -790,9 +624,9 @@
         <div class="footer-section links2">
           <h2>Quick Links</h2>
           <ul>
-            <li><a href="{{ route('pengguna.index') }}">Home</a></li>
-            <li><a href="#">Quiz</a></li>
-            <li><a href="#">Budaya</a></li>
+            <li><a href="{{ route('pengguna.test') }}">Home</a></li>
+            <li><a href="{{ route('pengguna.quiz') }}">Quiz</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Budaya</a></li>
           </ul>
         </div>
 
@@ -800,10 +634,10 @@
         <div class="footer-section resources">
           <h2>Resource</h2>
           <ul>
-            <li><a href="#">Tarian Tradisional</a></li>
-            <li><a href="#">Pakaian Tradisional</a></li>
-            <li><a href="#">Makanan Khas Maluku</a></li>
-            <li><a href="#">Musik Tradisional</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Tarian Tradisional</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Pakaian Tradisional</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Makanan Khas Maluku</a></li>
+            <li><a href="{{ route('pengguna.budaya') }}">Musik Tradisional</a></li>
           </ul>
         </div>
 
@@ -811,9 +645,9 @@
         <div class="footer-section newsletter">
           <h2>Maps Maluku</h2>
 
-          <div class="map-mask" onclick="window.location='{{ route('pengguna.budaya') }}'">
+          <div class="map-mask" onclick="openMapModal()">
             <img src="assets/images/mapss2.png" alt="maps">
-          </div>
+        </div>
         </div>
 
       </div>
@@ -841,9 +675,10 @@
       <i class="ri-arrow-up-line"></i>
     </a>
 
-    <a href="#chatbot" target="_blank" class="chatbot">
-        <i class="ri-robot-2-fill"></i>
-    </a>
+    <a href="{{ route('pengguna.chatBot') }}" target="_blank" class="chatbot">
+    <i class="ri-robot-2-fill"></i>
+</a>
+
 
     {{-- jquery --}}
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> --}}
@@ -853,7 +688,7 @@
 
     {{-- swiper js --}}
     <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
-    
+
     <!-- main js-->
     <script src="{{ asset('assets/js/test.js') }}"></script>
 
@@ -865,6 +700,9 @@
         })
       });
     </script> --}}
+
+    {{-- Modal Maps--}}
+@include('components.maps')
 
 </body>
 </html>

@@ -46,19 +46,20 @@
                     <td class="p-2 border flex gap-2">
 
                         {{-- Edit --}}
-                        <button class="editBtn bg-yellow-500 text-white px-3 py-1 rounded text-sm"
-                            data-id="{{ $q->id }}"
-                            data-category="{{ $q->category }}"
-                            data-type="{{ $q->question_type }}"
-                            data-question="{{ $q->question }}"
-                            data-a="{{ $q->option_a }}"
-                            data-b="{{ $q->option_b }}"
-                            data-c="{{ $q->option_c }}"
-                            data-d="{{ $q->option_d }}"
-                            data-correct="{{ $q->correct_answer }}"
-                            data-explanation="{{ $q->explanation }}">
-                            Edit
-                        </button>
+                       <button class="editBtn bg-yellow-500 text-white px-3 py-1 rounded text-sm"
+    data-id="{{ $q->id }}"
+    data-category="{{ $q->category }}"
+    data-type="{{ $q->question_type }}"
+    data-question="{{ $q->question }}"
+    data-a="{{ $q->option_a }}"
+    data-b="{{ $q->option_b }}"
+    data-c="{{ $q->option_c }}"
+    data-d="{{ $q->option_d }}"
+    data-correct="{{ $q->correct_answer }}"
+    data-explanation="{{ $q->explanation }}"
+    data-media="{{ $q->media_url }}">
+    Edit
+</button>
 
                         {{-- Delete --}}
                         <form action="{{ route('admin.quiz.destroy', $q->id) }}" method="POST"
@@ -125,11 +126,13 @@
 <div id="modal"
     class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
 
-    <div class="bg-white w-full max-w-2xl rounded shadow p-6 relative">
+    <div class="bg-white w-full max-w-2xl rounded shadow p-6 relative
+            max-h-[90vh] overflow-y-auto">
+
 
         <h2 id="modalTitle" class="text-xl font-bold mb-4">Tambah Soal Quiz</h2>
 
-        <form id="quizForm" method="POST">
+        <form id="quizForm" method="POST" enctype="multipart/form-data">
             @csrf
 
             {{-- Category --}}
@@ -153,6 +156,16 @@
                 <label class="font-semibold">Soal:</label>
                 <textarea name="question" id="question" class="w-full border p-2 rounded"></textarea>
             </div>
+
+            {{-- Media URL (Muncul hanya jika tipe = video/audio) --}}
+<div class="mb-3 hidden" id="media_url_group">
+    <label class="font-semibold">Media URL (Video/Audio):</label>
+  <input type="file" name="media_file" accept="video/*,audio/*"
+
+           class="w-full border p-2 rounded"
+           placeholder="https://contoh.com/media.mp4">
+</div>
+
 
             {{-- Options --}}
             <div class="grid grid-cols-2 gap-4">
@@ -219,30 +232,63 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModal = document.getElementById('closeModal');
     const form = document.getElementById('quizForm');
 
-    // OPEN MODAL
+    // FIELD MEDIA
+    const typeSelect = document.getElementById('question_type');
+    const mediaGroup = document.getElementById('media_url_group');
+    const mediaInput = document.querySelector('input[name="media_file"]'); // FIXED
+
+
+    // ====== SHOW/HIDE MEDIA FIELD ======
+    function toggleMediaField() {
+        if (typeSelect.value === "video" || typeSelect.value === "audio") {
+            mediaGroup.classList.remove("hidden");
+        } else {
+            mediaGroup.classList.add("hidden");
+            mediaInput.value = ""; // reset file input
+        }
+    }
+
+    typeSelect.addEventListener("change", toggleMediaField);
+
+
+    // =========================================================
+    // OPEN MODAL (CREATE)
+    // =========================================================
     addBtn.addEventListener('click', () => {
         form.action = "{{ route('admin.quiz.store') }}";
         form.reset();
         form.querySelectorAll('input[name="_method"]').forEach(e => e.remove());
 
+        mediaGroup.classList.add("hidden"); // hide media field by default
+        mediaInput.value = "";
+
         modal.classList.remove('hidden');
         modal.classList.add('flex');
     });
 
+
+    // =========================================================
     // CLOSE MODAL
+    // =========================================================
     closeModal.addEventListener('click', () => {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
     });
 
-    // EDIT
+
+    // =========================================================
+    // EDIT SOAL
+    // =========================================================
     document.querySelectorAll('.editBtn').forEach(btn => {
         btn.addEventListener('click', () => {
 
             form.action = "/admin/quiz/" + btn.dataset.id;
+
+            // Tambahkan PUT method
             form.querySelectorAll('input[name="_method"]').forEach(e => e.remove());
             form.insertAdjacentHTML('beforeend', '<input type="hidden" name="_method" value="PUT">');
 
+            // Isi field
             document.getElementById('category').value = btn.dataset.category;
             document.getElementById('question_type').value = btn.dataset.type;
             document.getElementById('question').value = btn.dataset.question;
@@ -252,6 +298,11 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('option_d').value = btn.dataset.d;
             document.getElementById('correct_answer').value = btn.dataset.correct;
             document.getElementById('explanation').value = btn.dataset.explanation;
+
+            // FILE INPUT CANNOT BE PREFILLED
+            mediaInput.value = "";  // FIXED
+
+            toggleMediaField();
 
             modal.classList.remove('hidden');
             modal.classList.add('flex');
@@ -284,6 +335,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return array.sort(() => Math.random() - 0.5);
     }
 
+
+    // =========================================================
+    // LOAD QUESTION
+    // =========================================================
     function loadQuestion() {
         quizResult.classList.add("hidden");
         nextBtn.classList.add("hidden");
@@ -293,16 +348,17 @@ document.addEventListener("DOMContentLoaded", () => {
         simQuestion.textContent = q.question;
 
         let options = [
-            {key: "A", val: q.option_a},
-            {key: "B", val: q.option_b},
-            {key: "C", val: q.option_c},
-            {key: "D", val: q.option_d},
+            { key: "A", val: q.option_a },
+            { key: "B", val: q.option_b },
+            { key: "C", val: q.option_c },
+            { key: "D", val: q.option_d },
         ];
 
         shuffle(options);
 
         simOptions.innerHTML = "";
 
+        // BUILD BUTTON OPSI
         options.forEach(opt => {
             let btn = document.createElement("button");
             btn.className = "block w-full text-left p-3 border rounded hover:bg-gray-100";
@@ -310,6 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             btn.onclick = () => {
                 clearInterval(timer);
+
                 if (opt.key === q.correct_answer) {
                     quizResult.textContent = "Jawaban BENAR!";
                     quizResult.className = "mt-4 p-4 bg-green-300 rounded";
@@ -325,7 +382,8 @@ document.addEventListener("DOMContentLoaded", () => {
             simOptions.appendChild(btn);
         });
 
-        // reset timer
+
+        // TIMER
         timeLeft = 30;
         timerBox.textContent = timeLeft;
 
@@ -343,17 +401,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 quizResult.classList.remove("hidden");
                 nextBtn.classList.remove("hidden");
             }
+
         }, 1000);
     }
 
+
+    // START SIM
     startSim.addEventListener("click", () => {
         current = 0;
         quizBox.classList.remove("hidden");
         loadQuestion();
     });
 
+
+    // NEXT QUESTION
     nextBtn.addEventListener("click", () => {
         current++;
+
         if (current >= questions.length) {
             quizBox.innerHTML = `
                 <h2 class="text-xl font-bold">Selesai!</h2>
@@ -361,10 +425,12 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             return;
         }
+
         loadQuestion();
     });
 
 });
 </script>
+
 
 @endsection
