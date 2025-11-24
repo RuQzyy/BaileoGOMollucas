@@ -138,19 +138,41 @@
 
             </div>
 
-
-
-
             <!-- PANAH -->
             <div class="swiper-button-prev"><i class="ri-arrow-left-s-fill"></i></div>
             <div class="swiper-button-next"><i class="ri-arrow-right-s-fill"></i></div>
 
         </div>
 
-        <!-- TOMBOL LIHAT SEMUA -->
         <div class="lihat-semua">
-            <a href="#">Lihat Semua →</a>
-        </div>
+    <a href="#" id="lihatSemuaBtn">Lihat Semua →</a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const lihatBtn = document.getElementById('lihatSemuaBtn');
+
+    lihatBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const swiperInstance = document.querySelector('.mySwiper').swiper;
+
+        if (!swiperInstance) return; // pengaman
+
+        const activeIndex = swiperInstance.activeIndex;
+        const activeSlide = swiperInstance.slides[activeIndex];
+
+        const onclickAttr = activeSlide.getAttribute('onclick');
+
+        if (!onclickAttr) return; // pengaman
+
+        const url = onclickAttr.match(/'(.*?)'/)[1];
+        window.location.href = url;
+    });
+});
+</script>
+
+
 
     </section>
 

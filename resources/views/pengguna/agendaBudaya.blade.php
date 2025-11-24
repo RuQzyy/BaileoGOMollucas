@@ -70,10 +70,13 @@
 
             <div class="content-info">
                 <p><i class="ri-map-pin-line"></i> {{ $event->lokasi }}</p>
-                <p>
-                    <i class="ri-calendar-2-line"></i>
-                    {{ \Carbon\Carbon::parse($event->tanggal)->format('d M Y') }}
-                </p>
+               <p>
+    <i class="ri-calendar-2-line"></i>
+    {{ \Carbon\Carbon::parse($event->tanggal)->format('d M Y') }}
+    —
+    {{ \Carbon\Carbon::parse($event->tanggal_berakhir)->format('d M Y') }}
+</p>
+
             </div>
         </div>
 
